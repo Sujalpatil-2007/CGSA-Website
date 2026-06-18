@@ -1,6 +1,42 @@
 node_modules/
 .env
-.env.local
+.env.*
 dist/
 build/
 .vscode/
+
+# Logs
+
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+
+coverage/
+.nyc_output
+
+# TypeScript
+
+*.tsbuildinfo
+
+# Cache
+
+.cache/
+.parcel-cache/
+.vite/
+
+# Next.js
+
+.next/
+out/
+
+# Nuxt
+
+.nuxt/
+
+# Misc
+
+.DS_Store
