@@ -46,7 +46,7 @@ const SingleArticle = () => {
 
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this article?"
+    "Are you sure you want to delete this article? This action cannot be undone."
     );
 
     if (confirmDelete) {

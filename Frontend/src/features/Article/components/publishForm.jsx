@@ -25,6 +25,7 @@ const publishForm = () => {
     e.preventDefault();
 
     try {
+      if (window.confirm("Do you want to publish it?")) {
       const data = await createArticle(formData);
       setFormData({
         title: "",
@@ -35,10 +36,10 @@ const publishForm = () => {
         author: "",
       });
       navigate(`/articles/${data.article._id}`);
-    } catch (err) {
+    }} catch (err) {
       console.log(err);
     }
-  };
+};
 
   return (
     <main className="h-full w-full dark:bg-gray-900   flex justify-center items-center ">

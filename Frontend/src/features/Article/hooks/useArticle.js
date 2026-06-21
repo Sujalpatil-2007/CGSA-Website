@@ -77,11 +77,7 @@ export const useArticle = () => {
 
   // Delete Article
   const handleDeleteArticle = async (id) => {
-  const isConfirmed = window.confirm(
-    "Are you sure you want to delete this article? This action cannot be undone."
-  );
-
-  if (!isConfirmed) return;
+  
 
   try {
     await deleteArticle(id);
