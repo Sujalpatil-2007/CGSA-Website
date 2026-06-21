@@ -52,17 +52,17 @@ const EditForm = () => {
     };
 
     try {
-      const data = await updateArticle(id, articleData);
-
-      console.log("Server Response:", data);
-
-      toast.success("Article Updated Successfully ✨");
-
-      // IMPORTANT: triggers SingleArticle refetch
-      navigate(`/articles/${id}`, {
+      const confirmUpdate = window.confirm(
+    "Are you sure you want to update this article?"
+    );
+      if(confirmUpdate){
+        const data = await updateArticle(id, articleData);
+        toast.success("Article Updated Successfully ✨");
+        // IMPORTANT: triggers SingleArticle refetch
+        navigate(`/articles/${id}`, {
         state: { updatedAt: Date.now() },
       });
-      
+      }    
 
     } catch (err) {
       console.log("Update error:", err);
