@@ -129,14 +129,14 @@ const toggleTheme = () => {
         {!user ? (
           <button
             onClick={() => navigate("/login")}
-            className="bg-green-700 text-white px-4 py-2 text-xl lg:text-base rounded-xl font-semibold"
+            className="bg-green-700 cursor-pointer text-white px-4 py-2 text-xl lg:text-base rounded-xl font-semibold"
           >
             Login
           </button>
         ) : (
           <button
             onClick={Logout}
-            className="bg-red-600 text-white px-4 py-2 rounded-xl font-semibold"
+            className="bg-red-600 cursor-pointer text-white px-4 py-2 rounded-xl font-semibold"
           >
             Logout
           </button>

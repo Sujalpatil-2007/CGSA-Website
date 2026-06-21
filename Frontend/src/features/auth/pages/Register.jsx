@@ -88,6 +88,8 @@ const Register = () => {
                     }}
                     className="w-full rounded p-1 border-2 border-gray-400 "
                     type="password"
+                    maxLength={12}
+                    minLength={8}
                     id="password"
                     name="password"
                     placeholder="Enter password"

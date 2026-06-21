@@ -69,6 +69,8 @@ const Login = () => {
                     className="w-full rounded p-1 border-2 border-gray-400 "
                     type="password"
                     id="password"
+                    minLength={8}
+                    maxLength={12}
                     name="password"
                     placeholder="Enter password"
                   />
