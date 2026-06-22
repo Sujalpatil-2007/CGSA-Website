@@ -12,44 +12,48 @@ import AboutUs from "./features/aboutUs/pages/AboutUs";
 import Contact from "./features/Contact/page/Contact";
 
 export const router = createBrowserRouter([
-    {
-        path:"/login",
-        element:<Login/>
-    },
-    {
-        path:"register",
-        element:<Register/>
-    },
-    {
-        path:"/publisharticles",
-        element:<Protected><PublishArticles/></Protected>
-    },
-    {
-        path:"/articles",
-        element:<Articles/>
-    },
-    {
-        path:"/",
-        element:<Home/>
-    },
-    {
-        path:"/articles/:id",
-        element:<SingleArticlePage/>
-    },
-    {
-        path:"/articles/edit/:id",
-        element:<EditArticle/>
-    },
-    {
-        path:"/timeline",
-        element:<Timeline/>
-    },
-    {
-        path:"/aboutUs",
-        element:<AboutUs/>
-    },
-    {
-        path:"/contact",
-        element:<Contact/>
-    }
-])
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "register",
+    element: <Register />,
+  },
+  {
+    path: "/publisharticles",
+    element: (
+      <Protected>
+        <PublishArticles />
+      </Protected>
+    ),
+  },
+  {
+    path: "/articles",
+    element: <Articles />,
+  },
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/articles/:id",
+    element: <SingleArticlePage />,
+  },
+  {
+    path: "/articles/edit/:id",
+    element: <EditArticle />,
+  },
+  {
+    path: "/timeline",
+    element: <Timeline />,
+  },
+  {
+    path: "/aboutUs",
+    element: <AboutUs />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+]);

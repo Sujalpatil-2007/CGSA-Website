@@ -13,7 +13,8 @@
   src: url(../public/Lausanne-500.woff2);
 }
 
-html,body {
+html,
+body {
   overflow-x: hidden;
 }
 
