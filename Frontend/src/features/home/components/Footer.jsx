@@ -1,17 +1,16 @@
 import { Link } from "react-router";
+import { Mail, Phone, MapPin } from "lucide-react";
 import {
-  Mail,
-  Phone,
-  MapPin,
-} from "lucide-react";
-import {RiFacebookCircleFill ,RiInstagramFill , RiYoutubeFill  } from '@remixicon/react'
+  RiFacebookCircleFill,
+  RiInstagramFill,
+  RiYoutubeFill,
+} from "@remixicon/react";
 
 const Footer = () => {
   return (
     <>
       {/* Main Footer */}
       <footer className="bg-linear-to-b from-green-950 to-green-900 text-[#F3ECDA]">
-
         {/* Top Leaf Section */}
         <div className="bg-[#f8e3baf5] dark:bg-gray-900 h-10 flex justify-center">
           <div className="bg-green-950 h-10 w-32 rounded-b-full flex items-start justify-center pt-3">
@@ -21,12 +20,9 @@ const Footer = () => {
 
         {/* Content */}
         <div className="max-w-7xl mx-auto px-8 py-14 grid md:grid-cols-4 gap-10">
-
           {/* Brand */}
           <div>
-            <h1 className="text-4xl font-bold font-[font2]">
-              CGSA
-            </h1>
+            <h1 className="text-4xl font-bold font-[font2]">CGSA</h1>
 
             <div className="w-20 h-0.5 bg-orange-500 my-4"></div>
 
@@ -35,8 +31,8 @@ const Footer = () => {
             </h2>
 
             <p className="mt-4 text-gray-300">
-              Promoting Truth, Non-Violence, Simplicity and
-              Service through education and action.
+              Promoting Truth, Non-Violence, Simplicity and Service through
+              education and action.
             </p>
 
             <div className="flex gap-3 mt-5">
@@ -82,9 +78,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h2 className="text-xl text-green-400 font-semibold">
-              Contact
-            </h2>
+            <h2 className="text-xl text-green-400 font-semibold">Contact</h2>
 
             <div className="w-12 h-0.5 bg-orange-500 my-3"></div>
 
@@ -101,9 +95,7 @@ const Footer = () => {
 
               <div className="flex gap-2">
                 <MapPin size={18} />
-                <span>
-                  Centre of Gandhian Studies and Action
-                </span>
+                <span>Centre of Gandhian Studies and Action</span>
               </div>
             </div>
           </div>
@@ -126,8 +118,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-green-800 py-5 text-center text-sm text-gray-300">
-          © 2026 Centre of Gandhian Studies and Action.
-          All Rights Reserved.
+          © 2026 Centre of Gandhian Studies and Action. All Rights Reserved.
           <br />
           Designed with simplicity, inspired by Gandhi.
         </div>
