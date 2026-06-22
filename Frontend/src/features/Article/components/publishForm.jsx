@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createArticle } from "../services/Article.api";
 import { Send } from "lucide-react";
 import { useNavigate } from "react-router";
-import {toast} from 'react-toastify'
+import { toast } from "react-toastify";
 
 const publishForm = () => {
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ const publishForm = () => {
       } catch (err) {
         console.log(err);
       }
-    else{
+    else {
       toast.error("Please fill all fields ❌");
     }
   };

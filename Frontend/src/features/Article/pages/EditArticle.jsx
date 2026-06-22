@@ -7,7 +7,6 @@ import Footer from "../../home/components/Footer";
 const EditArticle = () => {
   return (
     <div className="min-h-screen w-full bg-[#e5d0a7b9] flex flex-col">
-
       {/* Navbar */}
       <Navbar />
 
@@ -28,13 +27,10 @@ const EditArticle = () => {
           </h1>
         </div>
 
-        <h1 className="text-xl font-[font1] pl-10">
-          - Mahatma Gandhi
-        </h1>
+        <h1 className="text-xl font-[font1] pl-10">- Mahatma Gandhi</h1>
       </div>
 
-      <Footer/>
-
+      <Footer />
     </div>
   );
 };

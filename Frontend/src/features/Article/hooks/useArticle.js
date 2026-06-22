@@ -16,49 +16,45 @@ export const useArticle = () => {
   const { loading, setLoading } = context;
 
   const navigate = useNavigate();
-  
 
   // Create Article
   const handleCreateArticle = async ({
-  title,
-  category,
-  description,
-  image,
-  content,
-  author,
-}) => {
-  setLoading(true);
+    title,
+    category,
+    description,
+    image,
+    content,
+    author,
+  }) => {
+    setLoading(true);
 
-  try {
-    // ✅ Basic validation (frontend safety)
-    if (!title || !category || !description || !image || !content) {
-      toast.error("Please fill all required fields ❗");
-      return;
+    try {
+      // ✅ Basic validation (frontend safety)
+      if (!title || !category || !description || !image || !content) {
+        toast.error("Please fill all required fields ❗");
+        return;
+      }
+
+      const data = await createArticle({
+        title,
+        category,
+        description,
+        image,
+        content,
+        author,
+      });
+
+      toast.success("Article Published Successfully 🎉");
+
+      return data; // useful for navigation or UI update
+    } catch (err) {
+      console.log("CREATE ERROR:", err);
+
+      toast.error(err.response?.data?.message || "Article Not Published ❌");
+    } finally {
+      setLoading(false);
     }
-
-    const data = await createArticle({
-      title,
-      category,
-      description,
-      image,
-      content,
-      author,
-    });
-
-    toast.success("Article Published Successfully 🎉");
-
-    return data; // useful for navigation or UI update
-  } catch (err) {
-    console.log("CREATE ERROR:", err);
-
-    toast.error(
-      err.response?.data?.message ||
-        "Article Not Published ❌"
-    );
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   // Get Article By Id
   const handleGetArticleById = async (id) => {
@@ -77,35 +73,24 @@ export const useArticle = () => {
 
   // Delete Article
   const handleDeleteArticle = async (id) => {
-  
+    try {
+      await deleteArticle(id);
 
-  try {
-    await deleteArticle(id);
+      toast.success("Article Deleted Successfully");
+      navigate("/articles");
+    } catch (err) {
+      console.log(err);
 
-    toast.success("Article Deleted Successfully");
-    navigate("/articles");
-  } catch (err) {
-    console.log(err);
-
-    toast.error(
-      err.response?.data?.message ||
-        "Failed To Delete Article"
-    );
-  }
-};
+      toast.error(err.response?.data?.message || "Failed To Delete Article");
+    }
+  };
 
   // Update Article
-  const handleUpdateArticle = async (
-    id,
-    articleData
-  ) => {
+  const handleUpdateArticle = async (id, articleData) => {
     setLoading(true);
 
     try {
-      const data = await updateArticle(
-        id,
-        articleData
-      );
+      const data = await updateArticle(id, articleData);
 
       toast.success("Article Updated Successfully ✨");
 

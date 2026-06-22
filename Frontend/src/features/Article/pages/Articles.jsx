@@ -114,8 +114,9 @@ const Articles = () => {
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
-  );};
+  );
+};
 
 export default Articles;

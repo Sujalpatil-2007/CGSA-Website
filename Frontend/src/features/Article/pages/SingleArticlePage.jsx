@@ -5,7 +5,7 @@ import { getArticleById } from "../services/Article.api";
 import { Calendar } from "lucide-react";
 import { AuthContext } from "../../auth/auth.context";
 import useArticle from "../hooks/useArticle";
-import  Loading  from "../../auth/pages/Loading";
+import Loading from "../../auth/pages/Loading";
 import Footer from "../../home/components/Footer";
 
 const SingleArticle = () => {
@@ -46,7 +46,7 @@ const SingleArticle = () => {
 
   const handleDelete = async () => {
     const confirmDelete = window.confirm(
-    "Are you sure you want to delete this article? This action cannot be undone."
+      "Are you sure you want to delete this article? This action cannot be undone.",
     );
 
     if (confirmDelete) {
@@ -57,7 +57,7 @@ const SingleArticle = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center bg-[#f8f5ee]">
-        <Loading/>
+        <Loading />
       </div>
     );
   }
@@ -65,9 +65,7 @@ const SingleArticle = () => {
   if (error) {
     return (
       <div className="min-h-screen flex justify-center items-center bg-[#f8f5ee]">
-        <h1 className="text-2xl text-red-500">
-          {error}
-        </h1>
+        <h1 className="text-2xl text-red-500">{error}</h1>
       </div>
     );
   }
@@ -75,9 +73,7 @@ const SingleArticle = () => {
   if (!article) {
     return (
       <div className="min-h-screen flex justify-center items-center bg-[#f8f5ee]">
-        <h1 className="text-2xl text-red-500">
-          Article Not Found
-        </h1>
+        <h1 className="text-2xl text-red-500">Article Not Found</h1>
       </div>
     );
   }
@@ -137,9 +133,7 @@ const SingleArticle = () => {
             {user && article.author?._id === user.id && (
               <div className="flex flex-wrap gap-4 mt-6">
                 <button
-                  onClick={() =>
-                    navigate(`/articles/edit/${article._id}`)
-                  }
+                  onClick={() => navigate(`/articles/edit/${article._id}`)}
                   className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition"
                 >
                   Update Article
@@ -180,7 +174,7 @@ const SingleArticle = () => {
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

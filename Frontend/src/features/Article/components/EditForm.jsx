@@ -53,17 +53,16 @@ const EditForm = () => {
 
     try {
       const confirmUpdate = window.confirm(
-    "Are you sure you want to update this article?"
-    );
-      if(confirmUpdate){
+        "Are you sure you want to update this article?",
+      );
+      if (confirmUpdate) {
         const data = await updateArticle(id, articleData);
         toast.success("Article Updated Successfully ✨");
         // IMPORTANT: triggers SingleArticle refetch
         navigate(`/articles/${id}`, {
-        state: { updatedAt: Date.now() },
-      });
-      }    
-
+          state: { updatedAt: Date.now() },
+        });
+      }
     } catch (err) {
       console.log("Update error:", err);
       toast.error("Failed To Update Article ❌");
@@ -73,7 +72,6 @@ const EditForm = () => {
   return (
     <main className="h-full w-full dark:bg-gray-900 flex justify-center items-center">
       <div className="lg:h-[95%] w-[95%]">
-
         {/* Header */}
         <div className="p-1">
           <div className="flex pt-2 ">
@@ -97,7 +95,6 @@ const EditForm = () => {
         <div className="lg:h-[95%] w-full">
           <div className="h-full w-full dark:bg-gray-800 mb-5 dark:text-white rounded-2xl border-2 border-[#aba69ca7]">
             <form onSubmit={handleSubmit} className="h-full p-3 w-full">
-
               {/* Title */}
               <label className="font-[font2]">Title :</label>
               <input
@@ -108,7 +105,6 @@ const EditForm = () => {
 
               {/* Image + Category */}
               <div className="flex gap-10 mt-3">
-
                 <div>
                   <label className="font-[font2]">Image : </label>
                   <input
@@ -175,7 +171,6 @@ const EditForm = () => {
                 <Send size={24} className="mr-2" />
                 Save Changes
               </button>
-
             </form>
           </div>
         </div>
