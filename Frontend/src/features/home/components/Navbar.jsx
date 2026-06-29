@@ -53,6 +53,7 @@ const Navbar = () => {
     navigate("/");
   };
 
+
   return (
     <main className="flex justify-between items-center px-2 py-1 lg:px-5 lg:pl-1  w-full bg-[#e5d0a7b9] dark:bg-gray-900">
       {/* Logo */}
@@ -78,7 +79,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Nav */}
-      <div className="hide flex items-center justify-center gap-8 dark:bg-gray-800 bg-amber-50 rounded-2xl shadow-md px-8 py-3">
+      <div className=" hidden lg:flex items-center justify-center gap-8 dark:bg-gray-800 bg-amber-50 rounded-2xl shadow-md px-8 py-3">
         <Link
           to="/"
           className="font-[font2] dark:text-white hover:text-green-700"
@@ -123,9 +124,8 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-
       {/* Right Side */}
-      <div className="flex items-center gap-2 lg:gap-3 ">
+      <div className=" flex items-center gap-2 lg:gap-3 ">
         <button
           onClick={toggleTheme}
           className="  p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 dark:text-white cursor-pointer"

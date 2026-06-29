@@ -30,11 +30,11 @@ const Home = () => {
 
   return (
     <div id="main">
-      <main className="bg-cover  relative  bg-center bg-no-repeat bg-[url(bg.png)] min-h-screen w-screen ">
+      <main className="bg-cover  relative  bg-center bg-no-repeat bg-[url(bg.png)] min-h-screen w-full ">
         <Navbar />
         <Hero />
       </main>
-      <div className="min-h-screen w-screen relative dark:bg-gray-900 bg-[#e7dbc490] ">
+      <div className="min-h-screen w-full relative dark:bg-gray-900 bg-[#e7dbc490] ">
         <div className="flex justify-center items-center ">
           <div className="h-[10%] lg:h-[25%] lg:w-[90%] w-[98%] absolute   lg:mt-12 mt-18 flex justify-around items-center rounded-2xl text-center shadow-[0px_0px_10px_0px_black] dark:bg-gray-800 dark:text-white  bg-[#f1eee7db]  ">
             <div className="flex flex-col  p-1 border-r-2 lg:border-none border-[#b1a375] gap-5">
