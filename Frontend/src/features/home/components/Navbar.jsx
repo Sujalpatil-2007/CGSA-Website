@@ -54,14 +54,14 @@ const Navbar = () => {
   };
 
   return (
-    <main className="flex justify-between items-center px-2 py-1 lg:px-5 lg:pl-1  w-full bg-[#e5d0a7b9] dark:bg-gray-900 ">
+    <main className="flex justify-between items-center px-2 py-1 lg:px-5 lg:pl-1  w-full bg-[#e5d0a7b9] dark:bg-gray-900">
       {/* Logo */}
-      <div className="flex  items-center gap-2">
+      <div className="flex  items-center gap-0">
         <Link to={"/"}>
           <img
             src={darkMode ? "/darkimage.png" : "/lightimage.png"}
             alt="CGSA Logo"
-            className="h-16 -mx-1  lg:h-auto lg:-m-1 w-18  lg:w-22 "
+            className="h-12 -mx-1  lg:h-12 w-18  lg:w-22 "
           />
         </Link>
         <div>
@@ -78,38 +78,38 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Nav */}
-      <div className="hidden  lg:flex items-center justify-center gap-8 dark:bg-gray-800 bg-amber-50 rounded-2xl shadow-md px-8 py-3">
+      <div className="hide flex items-center justify-center gap-8 dark:bg-gray-800 bg-amber-50 rounded-2xl shadow-md px-8 py-3">
         <Link
           to="/"
-          className="font-semibold dark:text-white hover:text-green-700"
+          className="font-[font2] dark:text-white hover:text-green-700"
         >
           Home
         </Link>
 
         <Link
           to="/articles"
-          className="font-semibold dark:text-white hover:text-green-700"
+          className="font-[font2] dark:text-white hover:text-green-700"
         >
           Articles
         </Link>
 
         <Link
           to="/timeline"
-          className="font-semibold dark:text-white hover:text-green-700"
+          className="font-[font2] dark:text-white hover:text-green-700"
         >
           Timeline
         </Link>
 
         <Link
           to="/aboutUs"
-          className="font-semibold dark:text-white hover:text-green-700"
+          className="font-[font2] dark:text-white hover:text-green-700"
         >
           About Us
         </Link>
 
         <Link
           to="/contact"
-          className="font-semibold dark:text-white hover:text-green-700"
+          className="font-[font2] dark:text-white hover:text-green-700"
         >
           Contact
         </Link>
@@ -220,7 +220,7 @@ const Navbar = () => {
         </div>
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
