@@ -96,7 +96,7 @@ const publishForm = () => {
                 />
               </div>
               {/* img and category  */}
-              <div className="flex flex-col    w-full   ">
+              <div className="flex flex-col w-full   ">
                 <div className="flex gap-10 relative ">
                   {/* image url */}
                   <div>
@@ -127,7 +127,7 @@ const publishForm = () => {
                       id="category"
                       value={formData.category}
                       onChange={handleChange}
-                      className="bg-[#cac5bb68] dark:bg-gray-700 rounded "
+                      className="bg-[#cac5bb68] cursor-pointer dark:bg-gray-700 rounded "
                       required
                     >
                       <option value="">Select a category</option>
