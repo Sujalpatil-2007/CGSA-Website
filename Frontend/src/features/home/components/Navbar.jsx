@@ -62,7 +62,7 @@ const Navbar = () => {
           <img
             src={darkMode ? "/darkimage.png" : "/lightimage.png"}
             alt="CGSA Logo"
-            className="h-12 -mx-1  lg:h-12 md:h-10 w-18  lg:w-22 "
+            className="h-12 -mx-1  lg:h-16 md:h-10 w-18  lg:w-22 "
           />
         </Link>
         <div>
