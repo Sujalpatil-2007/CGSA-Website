@@ -53,7 +53,6 @@ const Navbar = () => {
     navigate("/");
   };
 
-
   return (
     <main className="flex justify-between items-center px-2 py-1 lg:px-5 lg:pl-1  w-full bg-[#e5d0a7b9] dark:bg-gray-900">
       {/* Logo */}
@@ -220,7 +219,7 @@ const Navbar = () => {
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
