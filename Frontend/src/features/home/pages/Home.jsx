@@ -84,7 +84,7 @@ const Home = () => {
             </p>
           </div>
           <div className="lg:h-[50vh] p-3 flex items-center justify-center ">
-            <div className="grid   md:grid-cols-3 gap-6 lg:mt-10">
+            <div className="grid md:grid-cols-3 gap-6 lg:mt-10">
               <section className="pt-5 lg:pt-18">
                 <div className="grid w-[90vw] md:grid-cols-2 lg:grid-cols-4 lg:ml-10 gap-10">
                   {latestArticles.map((article) => (
