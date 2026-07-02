@@ -7,20 +7,21 @@ export const useAuth = ()=> {
     const context = useContext(AuthContext)
     const {user,setUser,loading,setLoading} = context;
 
-    const handleLogin = async ({email,password}) => {
-        setLoading(true)
-        try{
-        const data = await login({email,password})
-        setUser(data.user)
-        toast.success("Login Successful 🎉");
-      }
-        catch(err){
-            console.log(err);
-            toast.error("Invalid Email or Password ❌");
-        }finally{
-        setLoading(false)
-        }
-    }
+    const handleLogin = async ({ email, password }) => {
+  setLoading(true);
+  try {
+    const data = await login({ email, password });
+    setUser(data.user);
+    toast.success("Login Successful 🎉");
+    return true;
+  } catch (err) {
+    console.log(err);
+    toast.error("Invalid Email or Password ❌");
+    return false;
+  } finally {
+    setLoading(false);
+  }
+};
 
     const handleRegister = async ({username,email,password}) => {
         setLoading(true)
@@ -28,10 +29,12 @@ export const useAuth = ()=> {
         const data = await register({username,email,password})
         setUser(data.user)
         toast.success("Account Created Successfully 🎉");
+        return true;
       }
         catch(err){
             console.log(err);
             toast.error("Registration Failed ❌");
+            return false
         }finally{
         setLoading(false)}
     }
