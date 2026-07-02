@@ -16,21 +16,21 @@ const Hero = () => {
       <div className="h-[60vh]  absolute left-5 top-33  w-[55vw]">
         <div className=" h-full    flex flex-col lg:gap-7 gap-7 justify-center ">
           <div>
-            <h1 className="lg:text-7xl text-4xl w-screen cursor-default font-[font2]  leading-tight ">
+            <h1 className="lg:text-7xl text-4xl w-screen dark:text-white cursor-default font-[font2]  leading-tight ">
               Inspiring Thoughts. <br /> Igniting
               <span className=" text-[#007a06b8]">Change</span>.
             </h1>
           </div>
           <div className="flex justify-start -my-10 items-center">
-            <div className="h-1 bg-[#121212cc] m-2 rounded w-30"></div>
-            <div className="h-1 bg-[#121212cc] rounded w-3"></div>
+            <div className="h-1 bg-[#121212cc] dark:bg-white m-2 rounded w-30"></div>
+            <div className="h-1 bg-[#121212cc] dark:bg-white rounded w-3"></div>
             <img
               className="lg:h-28 h-20 w-36 lg:w-40 pt-2 rotate-190 mix-blend-multiply "
               src="branch.jpg"
               alt="Not found"
             />
           </div>
-          <div className="text-xl cursor-default font-[font1]">
+          <div className="text-xl dark:text-gray-300 cursor-default font-[font1]">
             <p>
               CGSA is dedicated to preserving Gandhian wisdom, <br />
               promoting non-violence, truth, and sustainable <br />

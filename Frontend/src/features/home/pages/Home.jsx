@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <div id="main">
-      <main className="bg-cover  relative  bg-center bg-no-repeat bg-[url(bg.png)] min-h-screen w-full ">
+      <main className="bg-cover bg-[#e5d0a7b9] dark:bg-gray-900 relative   bg-center bg-no-repeat min-h-screen w-full ">
         <Navbar />
         <Hero />
       </main>
