@@ -95,7 +95,6 @@ const Home = () => {
                           alt={article.title}
                           className="w-full h-56 object-cover"
                         />
-
                         <div className="p-5">
                           <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
                             {article.category}
