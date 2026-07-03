@@ -30,7 +30,7 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <div className="h-screen  w-screen bg-cover  bg-center bg-no-repeat bg-[url(bg.jpg)] dark:bg-gray-900 dark:bg-none p-5 overflow-hidden ">
+      <div className="h-screen  w-screen bg-cover  bg-center bg-no-repeat bg-[url(bg.jpg)] bg-[#e5d0a7b9] dark:bg-gray-900 dark:bg-none p-5 overflow-hidden ">
         <main className="h-full lg:h-[90%]  w-full  text-center flex justify-center items-center">
           <div className="h-[60vh] shadow-[0px_0px_10px_0px_black] dark:shadow-[0px_0px_3px_0px_white] lg:h-[60vh] w-80 lg:w-1/4 p-5 rounded-2xl flex justify-start gap-10 items-center flex-col dark:bg-gray-800 dark:text-white bg-[#fcfbf851]">
             <div className="flex flex-col gap-3">

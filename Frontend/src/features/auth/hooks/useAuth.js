@@ -34,7 +34,7 @@ export const useAuth = ()=> {
         catch(err){
             console.log(err);
             toast.error("Registration Failed ❌");
-            return false
+            return false;
         }finally{
         setLoading(false)}
     }
