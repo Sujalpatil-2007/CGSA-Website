@@ -3,8 +3,16 @@ import Navbar from "../../home/components/Navbar";
 import PublishForm from "../../Article/components/publishForm";
 import { Quote } from "lucide-react";
 import Footer from "../../home/components/Footer";
+import { useAuth } from "../../auth/hooks/useAuth";
+import Loading from "../../auth/pages/Loading";
 
 const PublishArticles = () => {
+  const { loading, handleLogin } = useAuth();
+
+    if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className="h-screen w-screen  bg-[#e5d0a7b9]">
       <Navbar />

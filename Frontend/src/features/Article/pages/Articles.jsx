@@ -4,8 +4,11 @@ import { getAllArticles } from "../services/Article.api";
 import { Link } from "react-router";
 import { Calendar, Search } from "lucide-react";
 import Footer from "../../home/components/Footer";
+import { useAuth } from "../../auth/hooks/useAuth";
+import Loading from "../../auth/pages/Loading";
 
 const Articles = () => {
+  const { loading, handleLogin } = useAuth();
   const [articles, setArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -32,6 +35,10 @@ const Articles = () => {
     return matchesSearch && matchesCategory;
   });
 
+    if (loading) {
+    return <Loading />;
+  }
+  
   return (
     <div className="min-h-screen w-screen dark:bg-gray-900 bg-[#e5d0a7b9]">
       <Navbar />
