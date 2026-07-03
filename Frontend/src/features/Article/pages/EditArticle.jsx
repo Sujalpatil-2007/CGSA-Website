@@ -3,16 +3,8 @@ import Navbar from "../../home/components/Navbar";
 import EditForm from "../components/EditForm";
 import { Quote } from "lucide-react";
 import Footer from "../../home/components/Footer";
-import { useAuth } from "../../auth/hooks/useAuth";
-import Loading from "../../auth/pages/Loading";
 
 const EditArticle = () => {
-
-  const { loading, handleLogin } = useAuth();
-    if (loading) {
-    return <Loading />;
-  }
-  
   return (
     <div className="min-h-screen w-full bg-[#e5d0a7b9] flex flex-col">
       {/* Navbar */}

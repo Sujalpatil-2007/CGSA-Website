@@ -6,12 +6,10 @@ import { Calendar } from "lucide-react";
 import { AuthContext } from "../../auth/auth.context";
 import useArticle from "../hooks/useArticle";
 import Loading from "../../auth/pages/Loading";
-import { useAuth } from "../../auth/hooks/useAuth";
 import Footer from "../../home/components/Footer";
 
 const SingleArticle = () => {
   const { user } = useContext(AuthContext);
-  const { loading, handleLogin } = useAuth();
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -19,6 +17,7 @@ const SingleArticle = () => {
   const { handleDeleteArticle } = useArticle();
 
   const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   const fetchArticle = async () => {
@@ -56,7 +55,11 @@ const SingleArticle = () => {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <div className="min-h-screen flex justify-center items-center bg-[#f8f5ee]">
+        <Loading />
+      </div>
+    );
   }
 
   if (error) {
