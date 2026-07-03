@@ -100,13 +100,13 @@ const Register = () => {
                     Create Account
                   </button>
                 </div>
-              </form>
-              <p>
+                <p>
                 Already have an account?{" "}
                 <Link to={"/login"} className="text-[#007a06] font-semibold ">
                   Login
                 </Link>
               </p>
+              </form>
             </div>
           </div>
         </main>

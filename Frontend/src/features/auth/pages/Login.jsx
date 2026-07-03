@@ -86,8 +86,7 @@ const Login = () => {
 >
   {loading ? "Logging in..." : "Login"}
 </button>
-              </form>
-              <p>
+<p>
                 Don't have an account?{" "}
                 <Link
                   to={"/register"}
@@ -96,6 +95,7 @@ const Login = () => {
                   Register
                 </Link>
               </p>
+              </form>
             </div>
           </div>
         </main>

@@ -120,7 +120,7 @@ const Footer = () => {
         <div className="border-t border-green-800 py-5 text-center text-sm text-gray-300">
           © 2026 Centre of Gandhian Studies and Action. All Rights Reserved.
           <br />
-          Designed with simplicity, inspired by Gandhi.
+          Designed With Simplicity, Inspired By Gandhi.
         </div>
       </footer>
     </>

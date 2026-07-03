@@ -19,7 +19,7 @@ const AboutUs = () => {
       {/* Hero section */}
       <div className="flex  items-center ">
         {/* Hero text */}
-        <div className="h-screen lg:w-1/2 flex flex-col absolute lg:static justify-center items-start gap-5 pl-5 lg:pl-15 pb-20 ">
+        <div className="h-screen lg:w-1/2 flex flex-col absolute lg:static justify-center items-start gap-5 pl-5 lg:pl-30 pb-20 ">
           <h1 className="font-[fon2] text-5xl lg:dark:text-white  lg:text-7xl ">
             About Us
           </h1>
@@ -50,7 +50,7 @@ const AboutUs = () => {
           <h1 className="lg:text-5xl text-xl dark:text-white font-[font2]">
             Mission
           </h1>
-          <p className="lg:text-2xl pt-2 lg:pt-8 lg:leading-normal leading-tight  dark:text-gray-300 font-[font1] ">
+          <p className="lg:text-2xl pt-1 lg:pt-8 lg:leading-normal leading-tight  dark:text-gray-300 font-[font1] ">
             {" "}
             To educate, inspire, and empower individuals through Gandhian
             philosophy and values, fostering social responsibility, and peaceful
@@ -62,7 +62,7 @@ const AboutUs = () => {
           <h1 className="lg:text-5xl text-xl dark:text-white font-[font2]">
             Vision
           </h1>
-          <p className="lg:text-2xl pt-2 lg:pt-8 lg:leading-normal leading-tight dark:text-gray-300  font-[font1] ">
+          <p className="lg:text-2xl pt-1 lg:pt-8 lg:leading-normal leading-tight dark:text-gray-300  font-[font1] ">
             To create a society rooted in truth, compassion, non-violence,
             sustainability, and service, inspired by the timeless teachings of
             Mahatma Gandhi.

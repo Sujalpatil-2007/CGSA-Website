@@ -13,12 +13,12 @@ const Hero = () => {
           alt="Not found"
         />
       </div>
-      <div className="h-[60vh]  absolute left-5 top-33  w-[55vw]">
+      <div className="h-[60vh]  absolute left-5 lg:left-20 top-33  w-[55vw]">
         <div className=" h-full    flex flex-col lg:gap-7 gap-7 justify-center ">
           <div>
             <h1 className="lg:text-7xl text-4xl w-screen dark:text-white cursor-default font-[font2]  leading-tight ">
               Inspiring Thoughts. <br /> Igniting
-              <span className=" text-[#007a06b8]">Change</span>.
+              <span className=" text-[#007a06b8]"> Change</span>.
             </h1>
           </div>
           <div className="flex justify-start -my-10 items-center">
