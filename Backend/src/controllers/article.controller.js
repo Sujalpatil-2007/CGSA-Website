@@ -145,7 +145,6 @@ const updateArticle = async (req, res) => {
  */
 
 const deleteArticle = async (req, res) => {
-  console.log("req.user:", req.user);
   try {
     const article = await Article.findById(req.params.id);
 
