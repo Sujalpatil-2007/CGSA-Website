@@ -6,10 +6,14 @@ import { Link, Navigate } from "react-router";
 import { useNavigate } from "react-router";
 import { getAllArticles } from "../../Article/services/Article.api";
 import Footer from "../components/Footer";
+import Loading from "../../auth/pages/Loading";
+import { useAuth } from "../../auth/hooks/useAuth";
 
 const Home = () => {
   const navigate = useNavigate();
+  const { loading, handleLogin } = useAuth();
   const [latestArticles, setLatestArticles] = useState([]);
+
   useEffect(() => {
     const fetchLatestArticles = async () => {
       try {
@@ -27,6 +31,10 @@ const Home = () => {
 
     fetchLatestArticles();
   }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div id="main">

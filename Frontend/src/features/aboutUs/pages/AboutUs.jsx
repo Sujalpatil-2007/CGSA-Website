@@ -2,9 +2,16 @@ import React from "react";
 import Navbar from "../../home/components/Navbar";
 import { useNavigate } from "react-router";
 import Footer from "../../home/components/Footer";
+import Loading from "../../auth/pages/Loading";
+import { useAuth } from "../../auth/hooks/useAuth";
 
 const AboutUs = () => {
   const navigate = useNavigate();
+  const { loading, handleLogin } = useAuth();
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <main className="min-h-screen w-screen bg-[#e5d0a7b9] dark:bg-gray-900  ">
