@@ -79,9 +79,13 @@ const Login = () => {
                     placeholder="Enter password"
                   />
                 </div>
-                <div className="h-12 lg:h-[8vh] mt-6 cursor-pointer active:scale-98 rounded-xl bg-[#007a06] text-amber-50 flex justify-center items-center ">
-                  <button className="text-2xl font-semibold">Login</button>
-                </div>
+                <button
+  type="submit"
+  disabled={loading}
+  className="h-12 lg:h-[8vh] w-full mt-6 rounded-xl bg-[#007a06] text-amber-50 text-2xl font-semibold active:scale-95 disabled:opacity-50"
+>
+  {loading ? "Logging in..." : "Login"}
+</button>
               </form>
               <p>
                 Don't have an account?{" "}

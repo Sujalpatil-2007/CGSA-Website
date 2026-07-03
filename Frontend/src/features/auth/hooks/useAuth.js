@@ -10,7 +10,9 @@ export const useAuth = ()=> {
     const handleLogin = async ({ email, password }) => {
   setLoading(true);
   try {
+    console.log("LOGIN START");
     const data = await login({ email, password });
+    console.log("LOGIN SUCCESS");
     setUser(data.user);
     toast.success("Login Successful 🎉");
     return true;
@@ -60,12 +62,15 @@ const handleLogout = async () => {
     useEffect(() => {
   const getAndSetUser = async () => {
     try {
+      console.log("GET ME START");
       const data = await getMe();
+      console.log("GET ME SUCCESS");
 
       if (data?.user) {
         setUser(data.user);
       }
     } catch (err) {
+      console.log("GET ME FAILED");
        if (err.response?.status !== 401) {
     console.error(err);
   }
