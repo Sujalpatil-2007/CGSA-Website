@@ -4,9 +4,12 @@ import { Send, Mail, CalendarDays, UsersRound, Clock } from "lucide-react";
 import { toast } from "react-toastify";
 import HelpCard from "../components/HelpCard";
 import Footer from "../../home/components/Footer";
+import { useAuth } from "../../auth/hooks/useAuth";
+import Loading from "../../auth/pages/Loading"
 
 const Contact = () => {
   const [name, setName] = useState("");
+  const { loading, handleLogin } = useAuth();
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
@@ -25,6 +28,10 @@ const Contact = () => {
     }
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+  
   return (
     <main className="bg-[#e5d0a7b9] dark:bg-gray-900 min-h-screen w-screen">
       <Navbar />
