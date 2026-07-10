@@ -16,8 +16,13 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required: true
+    },
+
+    isSuperAdmin:{
+        type: Boolean,
+        default: false
     }
-})
+},{timestamps: true})
 
 const userModel = mongoose.model("users",userSchema)
 

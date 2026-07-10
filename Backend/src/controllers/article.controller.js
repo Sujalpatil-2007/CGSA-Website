@@ -1,5 +1,4 @@
 const Article = require("../models/article.model");
-const { route } = require("../routes/article.routes");
 
 /**
  * @name createArticle
@@ -8,12 +7,12 @@ const { route } = require("../routes/article.routes");
  */
 
 const createArticle = async (req, res) => {
-  const { title, category, description, image, content, author } = req.body;
+  const { title, category, description, image, content } = req.body;
 
   if (!title || !category || !description || !image || !content) {
     return res.status(400).json({
       message:
-        "Please provide title, category, description,image,content and author",
+        "Please provide title, category, description,image and content",
     });
   }
 
@@ -23,16 +22,24 @@ const createArticle = async (req, res) => {
 
   try {
     const article = await Article.create({
-      ...req.body,
+      title,
+      category,
+      description,
+      image,
+      content,
       author: req.user.id,
     });
     res.status(201).json({
-      message: "Article publiched successfully",
+      message: "Article submitted successfully",
       article,
     });
   } catch (err) {
-    console.log(err);
-  }
+  console.error(err);
+
+  return res.status(500).json({
+    message: err.message,
+  });
+}
 };
 
 /**
@@ -43,7 +50,9 @@ const createArticle = async (req, res) => {
 
 const getAllArticles = async (req, res) => {
   try {
-    const articles = await Article.find()
+    const articles = await Article.find({
+      status:"Published"
+    })
       .populate("author", "name email")
       .sort({ createdAt: -1 });
     res.status(200).json({
@@ -122,14 +131,13 @@ const updateArticle = async (req, res) => {
         new: true,
         runValidators: true,
         useFindAndModify: false,
-      }
+      },
     );
 
     return res.status(200).json({
       message: "Updated successfully",
       article: updatedArticle,
     });
-
   } catch (err) {
     console.log("UPDATE ERROR:", err);
     return res.status(500).json({
@@ -158,7 +166,7 @@ const deleteArticle = async (req, res) => {
       return res.status(401).json({ message: "User not authenticated" });
     }
 
-    if (article.author.toString() !== req.user.id.toString() ) {
+    if (article.author.toString() !== req.user.id.toString()) {
       return res.status(403).json({ message: "Not Authorized" });
     }
 
