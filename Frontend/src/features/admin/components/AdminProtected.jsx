@@ -11,9 +11,9 @@ const AdminProtected = ({ children }) => {
     return <Navigate to="/login" replace />;
   }
 
-  if (user.role !== "superAdmin") {
-    return <Navigate to="/" replace />;
-  }
+  if (!user.isSuperAdmin) {
+  return <Navigate to="/" replace />;
+}
 
   return children;
 };
