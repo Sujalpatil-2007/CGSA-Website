@@ -1,18 +1,17 @@
 import { Navigate } from "react-router";
 import { useContext } from "react";
-import { AuthContext } from "../../auth/auth.context";
+import { AdminContext } from "../admin.context";
 import Loading from "../../auth/pages/Loading";
 
 const AdminProtected = ({ children }) => {
-  const { user, loading } = useContext(AuthContext);
+  const { admin, loading } = useContext(AdminContext);
 
-
-  if (!user) {
-    return <Navigate to="/login" />;
+  if (loading) {
+    return <Loading />;
   }
 
-  if (!user.isSuperAdmin) {
-    return <Navigate to="/" />;
+  if (!admin) {
+    return <Navigate to="/login" replace />;
   }
 
   return children;

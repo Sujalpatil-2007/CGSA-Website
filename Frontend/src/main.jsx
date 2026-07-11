@@ -4,9 +4,11 @@ import App from "./App.jsx";
 import { AuthProvider } from "./features/auth/auth.context.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AdminProvider } from "./features/admin/admin.context.jsx";
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
+    <AdminProvider>
     <App />
     <ToastContainer
       position="top-right"
@@ -14,5 +16,6 @@ createRoot(document.getElementById("root")).render(
       draggable
       draggableDirection="x"
     />
+    </AdminProvider>
   </AuthProvider>,
 );

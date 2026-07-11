@@ -1,107 +1,113 @@
-import {getAdminArticles} from "../services/Admin.api";
-
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
+import {
+  getAdminArticles,
+  getPendingArticles,
+  getDashboardStats,
+  approveArticle,
+  rejectArticle,
+  requestChangesArticle,
+} from "../services/Admin.api";
 
-export const useArticle = () => {
-  const context = useContext(AuthContext);
-
-  const { loading, setLoading } = context;
-
-  const navigate = useNavigate();
-
-  // Create Article
-  const handleCreateArticle = async ({
-    title,
-    category,
-    description,
-    image,
-    content,
-    author,
-  }) => {
-    setLoading(true);
-
+const useAdmin = () => {
+  // Dashboard Stats
+  const handleDashboardStats = async () => {
     try {
-      // ✅ Basic validation (frontend safety)
-      if (!title || !category || !description || !image || !content) {
-        toast.error("Please fill all required fields ❗");
-        return;
-      }
-
-      const data = await createArticle({
-        title,
-        category,
-        description,
-        image,
-        content,
-        author,
-      });
-
-      toast.success("Article Published Successfully 🎉");
-
-      return data; // useful for navigation or UI update
-    } catch (err) {
-      console.log("CREATE ERROR:", err);
-
-      toast.error(err.response?.data?.message || "Article Not Published ❌");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Get Article By Id
-  const handleGetArticleById = async (id) => {
-    setLoading(true);
-
-    try {
-      const data = await getArticleById(id);
-
+      const data = await getDashboardStats();
       return data;
     } catch (err) {
-      console.log(err);
-    } finally {
-      setLoading(false);
+      console.error(err);
+      toast.error(
+        err.response?.data?.message || "Failed to fetch dashboard stats"
+      );
+      return null;
     }
   };
 
-  // Delete Article
-  const handleDeleteArticle = async (id) => {
+  // All Articles
+  const handleAdminArticles = async () => {
     try {
-      await deleteArticle(id);
-
-      toast.success("Article Deleted Successfully");
-      navigate("/articles");
-    } catch (err) {
-      console.log(err);
-
-      toast.error(err.response?.data?.message || "Failed To Delete Article");
-    }
-  };
-
-  // Update Article
-  const handleUpdateArticle = async (id, articleData) => {
-    setLoading(true);
-
-    try {
-      const data = await updateArticle(id, articleData);
-
-      toast.success("Article Updated Successfully ✨");
-
+      const data = await getAdminArticles();
       return data;
     } catch (err) {
-      console.log(err);
-      toast.error("Failed To Update Article ❌");
-    } finally {
-      setLoading(false);
+      console.error(err);
+      toast.error(
+        err.response?.data?.message || "Failed to fetch articles"
+      );
+      return null;
+    }
+  };
+
+  // Pending Articles
+  const handlePendingArticles = async () => {
+    try {
+      const data = await getPendingArticles();
+      return data;
+    } catch (err) {
+  console.error("Pending Articles Error:", err);
+  console.error("Status:", err.response?.status);
+  console.error("Response:", err.response?.data);
+
+  toast.error(
+    err.response?.data?.message || "Failed to fetch pending articles"
+  );
+
+  return null;
+}
+  };
+
+  // Approve Article
+  const handleApproveArticle = async (id) => {
+    try {
+      const data = await approveArticle(id);
+      toast.success(data.message || "Article approved");
+      return data;
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        err.response?.data?.message || "Failed to approve article"
+      );
+      return null;
+    }
+  };
+
+  // Reject Article
+  const handleRejectArticle = async (id) => {
+    try {
+      const data = await rejectArticle(id);
+      toast.success(data.message || "Article rejected");
+      return data;
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        err.response?.data?.message || "Failed to reject article"
+      );
+      return null;
+    }
+  };
+
+  // Request Changes
+  const handleRequestChanges = async (id, feedback) => {
+    try {
+      const data = await requestChangesArticle(id, feedback);
+      toast.success(data.message || "Changes requested");
+      return data;
+    } catch (err) {
+      console.error(err);
+      toast.error(
+        err.response?.data?.message || "Failed to request changes"
+      );
+      return null;
     }
   };
 
   return {
-    handleCreateArticle,
-    handleGetArticleById,
-    handleDeleteArticle,
-    handleUpdateArticle,
+    handleDashboardStats,
+    handleAdminArticles,
+    handlePendingArticles,
+    handleApproveArticle,
+    handleRejectArticle,
+    handleRequestChanges,
   };
 };
 
-export default useArticle;
+export default useAdmin;
