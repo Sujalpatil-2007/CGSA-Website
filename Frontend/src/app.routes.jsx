@@ -10,6 +10,9 @@ import EditArticle from "./features/Article/pages/EditArticle";
 import Timeline from "./features/timeline/page/Timeline";
 import AboutUs from "./features/aboutUs/pages/AboutUs";
 import Contact from "./features/Contact/page/Contact";
+import AdminLayout from "./features/admin/layouts/AdminLayouts";
+import Dashboard from "./features/admin/pages/Dashboard";
+import AdminArticles from "./features/admin/pages/AdminArticles"
 
 export const router = createBrowserRouter([
   {
@@ -56,4 +59,20 @@ export const router = createBrowserRouter([
     path: "/contact",
     element: <Contact />,
   },
+
+  // Admin Routes
+  {
+    path:"/admin",
+    element: <AdminLayout/> ,
+    children:[
+      {
+        path:"dashboard",
+        element:<Dashboard/>,
+      },
+      {
+        path:"articles",
+        element:<AdminArticles/>,
+      }
+    ]
+  }
 ]);

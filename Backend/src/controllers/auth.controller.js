@@ -32,7 +32,8 @@ async function registerUserController(req,res) {
     const user = await userModel.create({
         username,
         email,
-        password:hash
+        password:hash,
+        isSuperAdmin:false,
     })
 
     const token = jwt.sign(
@@ -53,7 +54,8 @@ async function registerUserController(req,res) {
         user:{
             id: user._id,
             username: user.username,
-            email: user.email
+            email: user.email,
+            isSuperAdmin:user.isSuperAdmin,
         }
     })
 
@@ -138,7 +140,8 @@ async function getMeController(req,res) {
         user:{
             id: user._id,
             username: user.username,
-            emai: user.email
+            email: user.email,
+            isSuperAdmin: user.isSuperAdmin,
         }
     })
 }
