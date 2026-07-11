@@ -13,6 +13,7 @@ import Contact from "./features/Contact/page/Contact";
 import AdminLayout from "./features/admin/layouts/AdminLayouts";
 import Dashboard from "./features/admin/pages/Dashboard";
 import AdminArticles from "./features/admin/pages/AdminArticles"
+import AdminProtected from "./features/admin/components/AdminProtected";
 
 export const router = createBrowserRouter([
   {
@@ -62,17 +63,21 @@ export const router = createBrowserRouter([
 
   // Admin Routes
   {
-    path:"/admin",
-    element: <AdminLayout/> ,
-    children:[
-      {
-        path:"dashboard",
-        element:<Dashboard/>,
-      },
-      {
-        path:"articles",
-        element:<AdminArticles/>,
-      }
-    ]
-  }
-]);
+  path: "/admin",
+  element: (
+    <AdminProtected>
+      <AdminLayout />
+    </AdminProtected>
+  ),
+  children: [
+    {
+      path: "dashboard",
+      element: <Dashboard />,
+    },
+    {
+      path: "articles",
+      element: <AdminArticles />,
+    },
+  ]
+}
+])
