@@ -9,7 +9,7 @@ const AdminProtected = ({ children }) => {
 
 
   if (!user) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/login" replace />;
     toast.error("Not login ")
   }
 
