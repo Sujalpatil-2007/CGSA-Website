@@ -31,25 +31,22 @@ const articleSchema = new mongoose.Schema(
       type: String,
       enum: [
         "Pending",
-        "Published",
+        "Approved",
         "Rejected",
         "Changes Requested",
-        "Archived",
       ],
       default: "Pending",
     },
-    reviewMessage: {
+    feedback: {
       type: String,
       default: "",
     },
-    approvedBy: {
+    reviewedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "users",
-      default: null,
     },
-    publishedAt: {
+    reviewedAt: {
       type: Date,
-      default: null,
     },
   },
   { timestamps: true },

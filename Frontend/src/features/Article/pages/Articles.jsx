@@ -96,9 +96,26 @@ const Articles = () => {
 
                 <div className="p-5">
                   <div className="flex justify-between">
-                    <span className="bg-green-100  text-green-800 px-3 py-1 rounded-full text-sm">
-                      {article.category}
-                    </span>
+                    <div className="flex flex-wrap gap-2">
+  <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800">
+    {article.category}
+  </span>
+
+  <span
+    className={`rounded-full px-3 py-1 text-sm
+      ${
+        article.status === "Approved"
+          ? "bg-green-100 text-green-700"
+          : article.status === "Rejected"
+          ? "bg-red-100 text-red-700"
+          : article.status === "Changes Requested"
+          ? "bg-orange-100 text-orange-700"
+          : "bg-yellow-100 text-yellow-700"
+      }`}
+  >
+    {article.status}
+  </span>
+</div>
                     <p className="flex items-center gap-1 font-[font1]">
                       <Calendar size={18} />
                       {new Date(article.createdAt).toLocaleDateString("en-IN", {

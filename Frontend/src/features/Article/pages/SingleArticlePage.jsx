@@ -118,6 +118,65 @@ const SingleArticle = () => {
           </p>
         </div>
 
+        {/* Status */}
+
+<div className="mt-4">
+  <span
+    className={`rounded-full px-4 py-2 text-sm font-semibold
+      ${
+        article.status === "Approved"
+          ? "bg-green-100 text-green-700"
+          : article.status === "Rejected"
+          ? "bg-red-100 text-red-700"
+          : article.status === "Changes Requested"
+          ? "bg-orange-100 text-orange-700"
+          : "bg-yellow-100 text-yellow-700"
+      }`}
+  >
+    {article.status}
+  </span>
+</div>
+
+{/* Admin Feedback */}
+
+{user &&
+  article.author?._id === user.id &&
+  article.feedback &&
+  article.status !== "Approved" && (
+    <div
+      className={`mt-6 rounded-xl border-l-4 p-6 shadow-sm
+        ${
+          article.status === "Rejected"
+            ? "border-red-500 bg-red-50"
+            : "border-orange-500 bg-orange-50"
+        }`}
+    >
+      <h2
+        className={`mb-3 text-xl font-bold
+          ${
+            article.status === "Rejected"
+              ? "text-red-700"
+              : "text-orange-700"
+          }`}
+      >
+        {article.status === "Rejected"
+          ? "Article Rejected"
+          : "Changes Requested"}
+      </h2>
+
+      <p className="leading-7 whitespace-pre-wrap text-gray-700">
+        {article.feedback}
+      </p>
+
+      {article.reviewedAt && (
+        <p className="mt-4 text-sm text-gray-500">
+          Reviewed on{" "}
+          {new Date(article.reviewedAt).toLocaleDateString()}
+        </p>
+      )}
+    </div>
+)}
+
         {/* Description & Image */}
         <div className="flex flex-col lg:flex-row gap-6 mt-6">
           {/* Description */}

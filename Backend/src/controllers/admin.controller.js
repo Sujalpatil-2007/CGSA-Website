@@ -81,10 +81,10 @@ const approveArticle = async (req, res) => {
       });
     }
 
-    article.status = "Published";
-    article.approvedBy = req.user.id;
-    article.publishedAt = new Date();
-    article.reviewMessage = "";
+    article.status = "Approved";
+    article.reviewedBy = req.user.id;
+    article.reviewedAt = new Date();
+    article.feedback = "";
 
     await article.save();
 
@@ -103,38 +103,43 @@ const approveArticle = async (req, res) => {
 
 const rejectArticle = async (req, res) => {
   try {
-    const reviewMessage = req.body.reviewMessage?.trim();
+    const { feedback } = req.body;
+
     const article = await articleModel.findById(req.params.id);
 
     if (!article) {
       return res.status(404).json({
-        message: "Article not found",
         success: false,
+        message: "Article not found",
       });
     }
 
     if (article.status !== "Pending") {
       return res.status(400).json({
         success: false,
+
         message: "Only pending articles can be rejected.",
       });
     }
 
-    if (!reviewMessage) {
+    if (!feedback) {
       return res.status(400).json({
         success: false,
+
         message: "Regect message is required.",
       });
     }
 
     article.status = "Rejected";
-    article.reviewMessage = reviewMessage;
+    article.feedback = feedback;
+    article.reviewedBy = req.user.id;
+    article.reviewedAt = new Date();
 
     await article.save();
 
     return res.status(200).json({
       success: true,
-      message: "Article rejected ",
+      message: "Article rejected successfully",
       article,
     });
   } catch (err) {
@@ -147,7 +152,7 @@ const rejectArticle = async (req, res) => {
 
 const requestChangesArticle = async (req, res) => {
   try {
-    const reviewMessage = req.body.reviewMessage?.trim();
+    const { feedback } = req.body;
     const article = await articleModel.findById(req.params.id);
 
     if (!article) {
@@ -164,7 +169,7 @@ const requestChangesArticle = async (req, res) => {
       });
     }
 
-    if (!reviewMessage) {
+    if (!feedback) {
       return res.status(400).json({
         success: false,
         message: "Review message is required.",
@@ -283,18 +288,18 @@ const getArticleById = async (req, res) => {
       article,
     });
   } catch (err) {
-  if (err.name === "CastError") {
-    return res.status(400).json({
+    if (err.name === "CastError") {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid article ID",
+      });
+    }
+
+    return res.status(500).json({
       success: false,
-      message: "Invalid article ID",
+      message: err.message,
     });
   }
-
-  return res.status(500).json({
-    success: false,
-    message: err.message,
-  });
-}
 };
 
 module.exports = {
