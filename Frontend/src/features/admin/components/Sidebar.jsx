@@ -7,7 +7,7 @@ import {
   LogOut,
   UserCircle,
 } from "lucide-react";
-import { logout } from "../../auth/services/Auth.api";
+import { logout } from "../../auth/services/auth.api";
 import { NavLink } from "react-router";
 import { AdminContext } from "../admin.context";
 import { useContext } from "react";
