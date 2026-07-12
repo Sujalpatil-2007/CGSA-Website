@@ -1,51 +1,50 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://cgsa-backend.vercel.app/api/admin",
+  baseURL: import.meta.env.VITE_API_URL,
   withCredentials: true,
 });
 
-// Dashboard Stats
 export const getDashboardStats = async () => {
-  const { data } = await api.get("/dashboard");
-  return data;
+  const res = await api.get("/api/admin/dashboard");
+  return res.data;
 };
 
-// All Articles
-export const getAdminArticles = async () => {
-  const { data } = await api.get("/articles");
-  return data;
-};
-
-// Pending Articles
 export const getPendingArticles = async () => {
-  const { data } = await api.get("/articles/pending");
-  return data;
+  const res = await api.get("/api/admin/articles/pending");
+  return res.data;
 };
 
-// Single Article
-export const getAdminArticleById = async (id) => {
-  const { data } = await api.get(`/articles/${id}`);
-  return data;
+export const getAdminArticles = async () => {
+  const res = await api.get("/api/admin/articles");
+  return res.data;
 };
 
-// Approve Article
+export const getArticleById = async (id) => {
+  const res = await api.get(`/api/admin/articles/${id}`);
+  return res.data;
+};
+
 export const approveArticle = async (id) => {
-  const { data } = await api.patch(`/articles/${id}/approve`);
-  return data;
+  const res = await api.patch(`/api/admin/articles/${id}/approve`);
+  return res.data;
 };
 
-// Reject Article
 export const rejectArticle = async (id) => {
-  const { data } = await api.patch(`/articles/${id}/reject`);
-  return data;
+  const res = await api.patch(`/api/admin/articles/${id}/reject`);
+  return res.data;
 };
 
-// Request Changes
-export const requestChangesArticle = async (id, feedback) => {
-  const { data } = await api.patch(
-    `/articles/${id}/request-changes`,
-    { feedback }
+export const requestChangesArticle = async (
+  id,
+  feedback
+) => {
+  const res = await api.patch(
+    `/api/admin/articles/${id}/request-changes`,
+    {
+      feedback,
+    }
   );
-  return data;
+
+  return res.data;
 };

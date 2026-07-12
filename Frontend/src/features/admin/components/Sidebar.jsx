@@ -1,43 +1,86 @@
-import { LayoutDashboard, FileText, LogOut, ChevronLeft } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import {
+  LayoutDashboard,
+  FileText,
+  Users,
+  FolderKanban,
+  Settings,
+  LogOut,
+} from "lucide-react";
+
+import { NavLink } from "react-router";
 
 const Sidebar = () => {
-  const navLinkStyle = ({ isActive }) =>
-    `flex items-center gap-3 rounded-lg px-4 py-3 transition-all duration-200 ${
-      isActive ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-100"
+  const linkClass = ({ isActive }) =>
+    `flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-300 ${
+      isActive
+        ? "bg-blue-600 text-white shadow-lg"
+        : "text-gray-600 hover:bg-gray-100"
     }`;
 
   return (
-    <aside className="flex h-screen w-64 flex-col border-r bg-white shadow-lg">
-      {/* Logo */}
-      <div className="flex h-16 items-center justify-between border-b px-6">
-        <h1 className="text-2xl font-bold text-blue-600">CGSA Admin</h1>
+    <aside className="flex h-screen w-72 flex-col border-r bg-white shadow-xl">
 
-        <button className="rounded-md p-1 hover:bg-gray-100">
-          <ChevronLeft size={18} />
-        </button>
+      <div className="border-b p-6">
+        <h1 className="text-3xl font-bold text-blue-600">
+          CGSA Admin
+        </h1>
+
+        <p className="text-sm text-gray-500">
+          Administration Panel
+        </p>
       </div>
 
-      {/* Navigation */}
-      <nav className="flex-1 space-y-2 p-4">
-        <NavLink to="/admin/dashboard" className={navLinkStyle}>
+      <nav className="flex-1 space-y-2 p-5">
+
+        <NavLink
+          to="/admin/dashboard"
+          className={linkClass}
+        >
           <LayoutDashboard size={20} />
           Dashboard
         </NavLink>
 
-        <NavLink to="/admin/articles" className={navLinkStyle}>
+        <NavLink
+          to="/admin/articles"
+          className={linkClass}
+        >
           <FileText size={20} />
           Articles
         </NavLink>
+
+        <NavLink
+          to="/admin/users"
+          className={linkClass}
+        >
+          <Users size={20} />
+          Users
+        </NavLink>
+
+        <NavLink
+          to="/admin/categories"
+          className={linkClass}
+        >
+          <FolderKanban size={20} />
+          Categories
+        </NavLink>
+
+        <NavLink
+          to="/admin/settings"
+          className={linkClass}
+        >
+          <Settings size={20} />
+          Settings
+        </NavLink>
+
       </nav>
 
-      {/* Logout */}
-      <div className="border-t p-4">
-        <button className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-red-600 transition hover:bg-red-50">
+      <div className="border-t p-5">
+        <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-red-50 py-3 font-medium text-red-600 hover:bg-red-100">
           <LogOut size={20} />
           Logout
         </button>
       </div>
+
     </aside>
   );
 };
