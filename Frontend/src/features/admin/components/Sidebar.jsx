@@ -5,9 +5,14 @@ import {
   FolderKanban,
   Settings,
   LogOut,
+  UserCircle,
 } from "lucide-react";
 import { logout } from "../../auth/services/Auth.api";
 import { NavLink } from "react-router";
+import { AdminContext } from "../admin.context";
+import { useContext } from "react";
+
+const { admin } = useContext(AdminContext);
 
 const Sidebar = () => {
   const linkClass = ({ isActive }) =>
@@ -56,6 +61,18 @@ const Sidebar = () => {
 
       </nav>
 
+      <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3">
+          <UserCircle size={45} className="text-blue-600" />
+
+          <div>
+            <h3 className="font-semibold">{admin?.username}</h3>
+
+            <p className="text-sm text-gray-500">Super Admin</p>
+          </div>
+        </div>
+      </div>
+      
       <div className="border-t p-5">
         <button onClick={handleLogout} className="flex w-full items-center justify-center gap-2 rounded-xl bg-red-50 py-3 font-medium text-red-600 hover:bg-red-100">
           <LogOut size={20} />
