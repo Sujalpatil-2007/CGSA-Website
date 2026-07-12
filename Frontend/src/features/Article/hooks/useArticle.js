@@ -44,13 +44,13 @@ export const useArticle = () => {
         author,
       });
 
-      toast.success("Article Published Successfully 🎉");
+      toast.success("Article is sended to admin 🎉");
 
       return data; // useful for navigation or UI update
     } catch (err) {
       console.log("CREATE ERROR:", err);
 
-      toast.error(err.response?.data?.message || "Article Not Published ❌");
+      toast.error(err.response?.data?.message || "Article is Not sended to admin  ❌");
     } finally {
       setLoading(false);
     }

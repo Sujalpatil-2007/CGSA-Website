@@ -11,8 +11,8 @@ const getDashboardStats = async (req, res) => {
       status: "Pending",
     });
 
-    const publishedArticles = await articleModel.countDocuments({
-      status: "Published",
+    const approveArticles = await articleModel.countDocuments({
+      status: "Approved",
     });
 
     const rejectedArticles = await articleModel.countDocuments({
@@ -29,7 +29,7 @@ const getDashboardStats = async (req, res) => {
         totalUsers,
         totalArticles,
         pendingArticles,
-        publishedArticles,
+        approveArticles,
         rejectedArticles,
         changesRequestedArticles,
       },

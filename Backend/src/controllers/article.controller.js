@@ -51,7 +51,7 @@ const createArticle = async (req, res) => {
 const getAllArticles = async (req, res) => {
   try {
     const articles = await Article.find({
-      status:"Published"
+      status:"Approved"
     })
       .populate("author", "name email")
       .sort({ createdAt: -1 });

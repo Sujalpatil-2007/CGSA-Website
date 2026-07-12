@@ -45,7 +45,7 @@ const publishForm = () => {
             author: "",
           });
           navigate(`/articles/${data.article._id}`);
-          toast.success("Article Published Successfully ✨");
+          toast.success("Article Approved Successfully ✨");
         }
       } catch (err) {
         console.log(err);
