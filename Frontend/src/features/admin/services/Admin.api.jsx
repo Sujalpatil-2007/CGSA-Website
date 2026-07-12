@@ -48,3 +48,8 @@ export const requestChangesArticle = async (
 
   return res.data;
 };
+
+export async function getArticle(id) {
+  const response = await api.get(`/api/admin/articles/${id}`);
+  return response.data;
+}

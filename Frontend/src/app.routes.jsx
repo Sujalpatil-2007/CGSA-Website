@@ -78,6 +78,10 @@ export const router = createBrowserRouter([
       path: "articles",
       element: <AdminArticles />,
     },
+    {
+      path: "articles/:id",
+      element: <ReviewArticle />,
+    },
   ],
 }
 ])

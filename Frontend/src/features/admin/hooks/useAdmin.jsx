@@ -8,116 +8,95 @@ import {
   rejectArticle,
   requestChangesArticle,
   getArticleById,
+  getArticle,
 } from "../services/Admin.api";
 
 const useAdmin = () => {
-  const handleDashboardStats =
-    async () => {
-      try {
-        return await getDashboardStats();
-      } catch (err) {
-        toast.error(
-          err.response?.data?.message ||
-            "Failed to fetch dashboard."
-        );
-      }
-    };
+  const handleDashboardStats = async () => {
+    try {
+      return await getDashboardStats();
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to fetch dashboard.");
+    }
+  };
 
-  const handlePendingArticles =
-    async () => {
-      try {
-        return await getPendingArticles();
-      } catch (err) {
-        toast.error(
-          err.response?.data?.message ||
-            "Failed to fetch pending articles."
-        );
-      }
-    };
+  const handlePendingArticles = async () => {
+    try {
+      return await getPendingArticles();
+    } catch (err) {
+      toast.error(
+        err.response?.data?.message || "Failed to fetch pending articles.",
+      );
+    }
+  };
 
-  const handleAdminArticles =
-    async () => {
-      try {
-        return await getAdminArticles();
-      } catch (err) {
-        toast.error(
-          err.response?.data?.message ||
-            "Failed to fetch articles."
-        );
-      }
-    };
+  const handleAdminArticles = async () => {
+    try {
+      return await getAdminArticles();
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to fetch articles.");
+    }
+  };
 
-  const handleArticleById =
-    async (id) => {
-      try {
-        return await getArticleById(id);
-      } catch (err) {
-        toast.error(
-          err.response?.data?.message ||
-            "Failed to fetch article."
-        );
-      }
-    };
+  const handleArticleById = async (id) => {
+    try {
+      return await getArticleById(id);
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed to fetch article.");
+    }
+  };
 
-  const handleApproveArticle =
-    async (id) => {
-      try {
-        const data =
-          await approveArticle(id);
+  const handleApproveArticle = async (id) => {
+    try {
+      const data = await approveArticle(id);
 
-        toast.success(
-          "Article Approved"
-        );
+      toast.success("Article Approved");
 
-        return data;
-      } catch (err) {
-        toast.error(
-          err.response?.data?.message ||
-            "Approval Failed"
-        );
-      }
-    };
+      return data;
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Approval Failed");
+    }
+  };
 
-  const handleRejectArticle =
-    async (id) => {
-      try {
-        const data =
-          await rejectArticle(id);
+  const handleRejectArticle = async (id) => {
+    try {
+      const data = await rejectArticle(id);
 
-        toast.success(
-          "Article Rejected"
-        );
+      toast.success("Article Rejected");
 
-        return data;
-      } catch (err) {
-        toast.error(
-          err.response?.data?.message ||
-            "Reject Failed"
-        );
-      }
-    };
+      return data;
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Reject Failed");
+    }
+  };
 
-  const handleRequestChanges =
-    async (id, feedback) => {
-      try {
-        const data =
-          await requestChangesArticle(
-            id,
-            feedback
-          );
+  const handleRequestChanges = async (id, feedback) => {
+    try {
+      const data = await requestChangesArticle(id, feedback);
 
-        toast.success(
-          "Feedback Sent"
-        );
+      toast.success("Feedback Sent");
 
-        return data;
-      } catch (err) {
-        toast.error(
-          err.response?.data?.message ||
-            "Failed"
-        );
-      }
-    };
+      return data;
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Failed");
+    }
+  };
+
+  const handleGetArticle = async (id) => {
+  try {
+    const data = await getArticle(id);
+    return data;
+  } catch (err) {
+    console.log(err);
+
+    toast.error(
+      err.response?.data?.message ||
+      "Failed to fetch article"
+    );
+
+    return null;
+  }
+};
 
   return {
     handleDashboardStats,
@@ -127,6 +106,7 @@ const useAdmin = () => {
     handleApproveArticle,
     handleRejectArticle,
     handleRequestChanges,
+    handleGetArticle,
   };
 };
 
