@@ -6,7 +6,7 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
-
+import { logout } from "../../auth/services/Auth.api";
 import { NavLink } from "react-router";
 
 const Sidebar = () => {
@@ -16,6 +16,12 @@ const Sidebar = () => {
         ? "bg-blue-600 text-white shadow-lg"
         : "text-gray-600 hover:bg-gray-100"
     }`;
+
+    const handleLogout = async () => {
+    await logout();
+
+    navigate("/login");
+};
 
   return (
     <aside className="flex h-screen w-72 flex-col border-r bg-white shadow-xl">
@@ -48,34 +54,10 @@ const Sidebar = () => {
           Articles
         </NavLink>
 
-        <NavLink
-          to="/admin/users"
-          className={linkClass}
-        >
-          <Users size={20} />
-          Users
-        </NavLink>
-
-        <NavLink
-          to="/admin/categories"
-          className={linkClass}
-        >
-          <FolderKanban size={20} />
-          Categories
-        </NavLink>
-
-        <NavLink
-          to="/admin/settings"
-          className={linkClass}
-        >
-          <Settings size={20} />
-          Settings
-        </NavLink>
-
       </nav>
 
       <div className="border-t p-5">
-        <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-red-50 py-3 font-medium text-red-600 hover:bg-red-100">
+        <button onClick={handleLogout} className="flex w-full items-center justify-center gap-2 rounded-xl bg-red-50 py-3 font-medium text-red-600 hover:bg-red-100">
           <LogOut size={20} />
           Logout
         </button>

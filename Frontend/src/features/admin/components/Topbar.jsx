@@ -14,21 +14,6 @@ const Topbar = () => {
   return (
     <header className="flex h-20 items-center justify-between border-b bg-white px-8">
 
-      <div className="relative w-112.5">
-
-        <Search
-          size={18}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
-        />
-
-        <input
-          type="text"
-          placeholder="Search..."
-          className="w-full rounded-xl border py-3 pl-11 outline-none focus:border-blue-500"
-        />
-
-      </div>
-
       <div className="flex items-center gap-6">
 
         <button className="relative rounded-full p-2 hover:bg-gray-100">
