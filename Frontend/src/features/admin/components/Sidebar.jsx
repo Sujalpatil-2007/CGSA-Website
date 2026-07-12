@@ -12,8 +12,6 @@ import { NavLink } from "react-router";
 import { AdminContext } from "../admin.context";
 import { useContext } from "react";
 
-const { admin } = useContext(AdminContext);
-
 const Sidebar = () => {
   const linkClass = ({ isActive }) =>
     `flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-300 ${
@@ -21,6 +19,8 @@ const Sidebar = () => {
         ? "bg-blue-600 text-white shadow-lg"
         : "text-gray-600 hover:bg-gray-100"
     }`;
+
+    const { admin } = useContext(AdminContext);
 
     const handleLogout = async () => {
     await logout();
