@@ -1,4 +1,5 @@
 const Article = require("../models/article.model");
+const userModel = require("../models/user.model");
 
 /**
  * @name createArticle
