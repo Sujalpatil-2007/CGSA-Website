@@ -15,15 +15,17 @@ const AdminArticles = () => {
   const navigate = useNavigate();
   const { handleDeleteArticle } = useArticle();
 
-  const handleDelete = async () => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this article? This action cannot be undone.",
-    );
+  const handleDelete = async (id) => {
+  const confirmDelete = window.confirm(
+    "Are you sure you want to delete this article?"
+  );
 
-    if (confirmDelete) {
-      await handleDeleteArticle(article._id);
-    }
-  };
+  if (!confirmDelete) return;
+
+  await handleDeleteArticle(id);
+
+  fetchArticles();
+};
 
   const {
     handleAdminArticles,
@@ -270,7 +272,7 @@ const AdminArticles = () => {
 
                       {/* delete */}
                       <button
-                        onClick={handleDelete}
+                        onClick={handleDelete(article._id)}
                         className="rounded bg-orange-100 p-2 text-red-600 hover:bg-red-200"
                       >
                         <Trash size={18} />
