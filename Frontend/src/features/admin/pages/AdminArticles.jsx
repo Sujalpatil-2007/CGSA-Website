@@ -8,9 +8,21 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router";
 import useAdmin from "../hooks/useAdmin";
+import useArticle from "../../Article/hooks/useArticle";
 
 const AdminArticles = () => {
   const navigate = useNavigate();
+  const { handleDeleteArticle } = useArticle();
+
+  const handleDelete = async () => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this article? This action cannot be undone.",
+    );
+
+    if (confirmDelete) {
+      await handleDeleteArticle(article._id);
+    }
+  };
 
   const {
     handleAdminArticles,
@@ -250,6 +262,14 @@ const AdminArticles = () => {
                             `/admin/articles/${article._id}`
                           )
                         }
+                        className="rounded bg-blue-100 p-2 text-blue-600 hover:bg-blue-200"
+                      >
+                        <Eye size={18} />
+                      </button>
+
+                      {/* delete */}
+                      <button
+                        onClick={handleDelete}
                         className="rounded bg-blue-100 p-2 text-blue-600 hover:bg-blue-200"
                       >
                         <Eye size={18} />
