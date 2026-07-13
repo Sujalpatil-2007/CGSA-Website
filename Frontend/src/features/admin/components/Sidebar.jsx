@@ -8,11 +8,14 @@ import {
   UserCircle,
 } from "lucide-react";
 import { logout } from "../../auth/services/auth.api";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { AdminContext } from "../admin.context";
 import { useContext } from "react";
 
 const Sidebar = () => {
+  
+  const navigate = useNavigate();
+
   const linkClass = ({ isActive }) =>
     `flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-300 ${
       isActive

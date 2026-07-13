@@ -271,7 +271,7 @@ const AdminArticles = () => {
                       {/* delete */}
                       <button
                         onClick={handleDelete}
-                        className="rounded bg-blue-100 p-2 text-red-600 hover:bg-red-200"
+                        className="rounded bg-orange-100 p-2 text-red-600 hover:bg-red-200"
                       >
                         <Trash size={18} />
                       </button>
