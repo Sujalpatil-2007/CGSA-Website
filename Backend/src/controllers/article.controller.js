@@ -162,23 +162,31 @@ const deleteArticle = async (req, res) => {
       });
     }
 
-    if (!req.user || !req.user.id) {
-      return res.status(401).json({ message: "User not authenticated" });
-    }
+    const user = await userModel.findById(req.user.id);
 
-    if (article.author.toString() !== req.user.id.toString()) {
-      return res.status(403).json({ message: "Not Authorized" });
+    // Allow if author OR super admin
+    const isAuthor =
+      article.author.toString() === req.user.id;
+
+    const isAdmin = user.isSuperAdmin;
+
+    if (!isAuthor && !isAdmin) {
+      return res.status(403).json({
+        success: false,
+        message: "Not authorized to delete this article",
+      });
     }
 
     await article.deleteOne();
 
     res.status(200).json({
-      message: "Article deleted",
+      message: "Article deleted successfully",
     });
   } catch (error) {
-    res.status(500).json({
-      message: error.message,
-    });
+     return res.status(500).json({
+      success: false,
+      message: err.message,
+     })
   }
 };
 
