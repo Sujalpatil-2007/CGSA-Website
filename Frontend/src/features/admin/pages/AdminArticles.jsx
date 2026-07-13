@@ -5,6 +5,7 @@ import {
   XCircle,
   FilePenLine,
   Search,
+  Trash,
 } from "lucide-react";
 import { useNavigate } from "react-router";
 import useAdmin from "../hooks/useAdmin";
