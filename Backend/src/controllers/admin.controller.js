@@ -103,7 +103,7 @@ const approveArticle = async (req, res) => {
 
 const rejectArticle = async (req, res) => {
   try {
-    const { feedback } = req.body;
+    const { feedback } = req.body || {} ;
 
     const article = await articleModel.findById(req.params.id);
 
@@ -152,7 +152,7 @@ const rejectArticle = async (req, res) => {
 
 const requestChangesArticle = async (req, res) => {
   try {
-    const { feedback } = req.body;
+    const { feedback } = req.body || {} ;
     const article = await articleModel.findById(req.params.id);
 
     if (!article) {
@@ -177,7 +177,7 @@ const requestChangesArticle = async (req, res) => {
     }
 
     article.status = "Changes Requested";
-    article.reviewMessage = reviewMessage;
+    article.feedback  = feedback ;
 
     await article.save();
 

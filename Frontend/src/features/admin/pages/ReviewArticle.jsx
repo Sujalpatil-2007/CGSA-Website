@@ -221,36 +221,6 @@ const ReviewArticle = () => {
           />
         </div>
       )}
-
-      <FeedbackModal
-        open={showChanges}
-        title="Request Changes"
-        buttonColor="bg-orange-500 hover:bg-orange-600"
-        buttonText="Send Feedback"
-        onClose={() => setShowChanges(false)}
-        onSubmit={async (feedback) => {
-          await handleRequestChanges(article._id, feedback);
-
-          setShowChanges(false);
-
-          navigate("/admin/articles");
-        }}
-      />
-
-      <FeedbackModal
-        open={showReject}
-        title="Reject Article"
-        buttonColor="bg-red-600 hover:bg-red-700"
-        buttonText="Reject"
-        onClose={() => setShowReject(false)}
-        onSubmit={async (feedback) => {
-          await handleRejectArticle(article._id, feedback);
-
-          setShowReject(false);
-
-          navigate("/admin/articles");
-        }}
-      />
     </div>
   );
 };

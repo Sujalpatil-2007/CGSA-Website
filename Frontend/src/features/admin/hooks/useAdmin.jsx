@@ -58,9 +58,9 @@ const useAdmin = () => {
     }
   };
 
-  const handleRejectArticle = async (id) => {
+  const handleRejectArticle = async (id,feedback) => {
     try {
-      const data = await rejectArticle(id);
+      const data = await rejectArticle(id,feedback);
 
       toast.success("Article Rejected");
 

@@ -20,13 +20,6 @@ adminRouter.get(
   adminController.getPendingArticles,
 );
 
-adminRouter.get(
-  "/articles/pending",
-  authUser,
-  superAdmin,
-  adminController.getPendingArticles,
-);
-
 adminRouter.patch(
   "/articles/:id/approve",
   authUser,
