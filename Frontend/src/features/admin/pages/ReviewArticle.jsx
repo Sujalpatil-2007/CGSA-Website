@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import FeedbackModal from "../components/FeedbackModal";
+import Loading from "../../auth/pages/Loading";
 
 import {
   ArrowLeft,
@@ -49,9 +50,7 @@ const ReviewArticle = () => {
 
   if (loading) {
     return (
-      <div className="flex h-[70vh] items-center justify-center">
-        <p className="text-lg font-medium">Loading Article...</p>
-      </div>
+      <Loading/>
     );
   }
 

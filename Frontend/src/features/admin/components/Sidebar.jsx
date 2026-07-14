@@ -64,7 +64,7 @@ const Sidebar = () => {
 
       </nav>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center p-5 gap-6">
         <div className="flex items-center gap-3">
           <UserCircle size={45} className="text-blue-600" />
 

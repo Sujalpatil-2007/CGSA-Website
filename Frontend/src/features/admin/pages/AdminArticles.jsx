@@ -201,40 +201,11 @@ const AdminArticles = () => {
                       {/* delete */}
                       <button
                         onClick={() => handleDelete(article._id)}
-                        className="rounded bg-orange-100 p-2 text-red-600 hover:bg-red-200"
+                        className="rounded bg-red-100 p-2 text-red-600 hover:bg-red-200"
                       >
                         <Trash size={18} />
                       </button>
 
-                      {article.status === "Pending" && (
-                        <>
-                          <button
-                            onClick={async () => {
-                              await handleApproveArticle(article._id);
-
-                              fetchArticles();
-                            }}
-                            className="rounded bg-green-100 p-2 text-green-600 hover:bg-green-200"
-                          >
-                            <CheckCircle2 size={18} />
-                          </button>
-
-                          <button className="rounded bg-orange-100 p-2 text-orange-600 hover:bg-orange-200">
-                            <FilePenLine size={18} />
-                          </button>
-
-                          <button
-                            onClick={async () => {
-                              await handleRejectArticle(article._id);
-
-                              fetchArticles();
-                            }}
-                            className="rounded bg-red-100 p-2 text-red-600 hover:bg-red-200"
-                          >
-                            <XCircle size={18} />
-                          </button>
-                        </>
-                      )}
                     </div>
                   </td>
                 </tr>
