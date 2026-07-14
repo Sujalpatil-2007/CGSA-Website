@@ -49,9 +49,7 @@ const ReviewArticle = () => {
   };
 
   if (loading) {
-    return (
-      <Loading/>
-    );
+    return <Loading />;
   }
 
   if (!article) {
@@ -63,13 +61,13 @@ const ReviewArticle = () => {
   }
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8">
+    <div className="mx-auto max-w-6xl space-y-8 hover:cursor-default">
       {/* Top */}
 
       <div className="flex items-center justify-between">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 rounded-lg border px-4 py-2 hover:bg-gray-100"
+          className="flex items-center gap-2 rounded-lg border px-4 py-2 hover:bg-gray-400 hover:cursor-pointer"
         >
           <ArrowLeft size={18} />
           Back
@@ -158,7 +156,7 @@ const ReviewArticle = () => {
                 }
               }
             }}
-            className="flex items-center gap-2 rounded-lg bg-green-600 px-6 py-3 text-white hover:bg-green-700"
+            className="flex items-center gap-2 rounded-lg bg-green-600 px-6 py-3 text-white hover:bg-green-700 hover:cursor-pointer"
           >
             <CheckCircle2 size={20} />
             Approve
@@ -166,7 +164,7 @@ const ReviewArticle = () => {
 
           <button
             onClick={() => setShowChanges(true)}
-            className="flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-white hover:bg-orange-600"
+            className="flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-white hover:bg-orange-600 hover:cursor-pointer"
           >
             <FilePenLine size={20} />
             Request Changes
@@ -174,7 +172,7 @@ const ReviewArticle = () => {
 
           <button
             onClick={() => setShowReject(true)}
-            className="flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-white hover:bg-red-700"
+            className="flex items-center gap-2 rounded-lg bg-red-600 px-6 py-3 text-white hover:bg-red-700 hover:cursor-pointer"
           >
             <XCircle size={20} />
             Reject

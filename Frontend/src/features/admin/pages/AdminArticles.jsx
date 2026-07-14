@@ -105,7 +105,7 @@ const AdminArticles = () => {
   };
 
   return (
-    <div className="rounded-2xl bg-white p-8 shadow">
+    <div className="rounded-2xl bg-white p-8 shadow hover:cursor-default">
       <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <h1 className="text-3xl font-bold">Articles</h1>
 
@@ -124,7 +124,7 @@ const AdminArticles = () => {
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="rounded-lg border px-4"
+            className="rounded-lg border hover:cursor-pointer px-4"
           >
             <option>All</option>
             <option>Pending</option>
@@ -136,7 +136,7 @@ const AdminArticles = () => {
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
-            className="rounded-lg border px-4"
+            className="rounded-lg border px-4 hover:cursor-pointer"
           >
             <option>Newest</option>
             <option>Oldest</option>
@@ -193,7 +193,7 @@ const AdminArticles = () => {
                           console.log(article._id);
                           navigate(`/admin/articles/${article._id}`);
                         }}
-                        className="rounded bg-blue-100 p-2 text-blue-600 hover:bg-blue-200"
+                        className="rounded bg-blue-100 p-2 text-blue-600 hover:bg-blue-200 hover:cursor-pointer"
                       >
                         <Eye size={18} />
                       </button>
@@ -201,7 +201,7 @@ const AdminArticles = () => {
                       {/* delete */}
                       <button
                         onClick={() => handleDelete(article._id)}
-                        className="rounded bg-red-100 p-2 text-red-600 hover:bg-red-200"
+                        className="rounded bg-red-100 p-2 text-red-600 hover:bg-red-200 hover:cursor-pointer"
                       >
                         <Trash size={18} />
                       </button>

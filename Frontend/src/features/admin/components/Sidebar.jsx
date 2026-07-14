@@ -64,7 +64,7 @@ const Sidebar = () => {
 
       </nav>
 
-      <div className="flex items-center p-5 gap-6">
+      <div className="flex items-center p-5 gap-6 cursor-default">
         <div className="flex items-center gap-3">
           <UserCircle size={45} className="text-blue-600" />
 
@@ -77,7 +77,7 @@ const Sidebar = () => {
       </div>
       
       <div className="border-t p-5">
-        <button onClick={handleLogout} className="flex w-full items-center justify-center gap-2 rounded-xl bg-red-50 py-3 font-medium text-red-600 hover:bg-red-100">
+        <button onClick={handleLogout} className="flex w-full items-center justify-center gap-2 rounded-xl bg-red-50 py-3 font-medium text-red-600 hover:cursor-pointer hover:bg-red-100">
           <LogOut size={20} />
           Logout
         </button>
