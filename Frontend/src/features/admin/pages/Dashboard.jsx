@@ -48,7 +48,7 @@ const Dashboard = () => {
 
         <StatsCard
           title="Approved"
-          value={stats?.approvedArticles || 0}
+          value={stats?.approveArticles || 0}
           icon={<CheckCircle2 className="text-white" />}
           color="bg-green-600"
         />
