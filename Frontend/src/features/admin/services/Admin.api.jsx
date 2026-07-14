@@ -30,7 +30,7 @@ export const approveArticle = async (id) => {
   return res.data;
 };
 
-export const rejectArticle = async (id) => {
+export const rejectArticle = async (id,feedback) => {
   const res = await api.patch(`/api/admin/articles/${id}/reject`);
   return res.data;
 };

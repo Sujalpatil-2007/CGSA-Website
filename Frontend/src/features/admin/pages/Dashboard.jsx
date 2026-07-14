@@ -16,15 +16,12 @@ const Dashboard = () => {
   }, []);
 
   const fetchStats = async () => {
-    console.log("Starting fetchStatus");
+
     const data = await handleDashboardStats();
-    console.log("complete fetchStatus");
-    console.log(data);
-    
+
     if (data) {
       setStats(data.stats);
     }
-    console.log(stats);
   };
 
   return (
