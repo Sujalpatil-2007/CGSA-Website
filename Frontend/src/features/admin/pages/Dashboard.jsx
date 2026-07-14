@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  FileText,
-  Clock3,
-  CheckCircle2,
-  XCircle,
-} from "lucide-react";
+import { FileText, Clock3, CheckCircle2, XCircle } from "lucide-react";
 
 import DashboardHeader from "../components/DashboardHeader";
 import StatsCard from "../components/StatsCard";
@@ -30,11 +25,9 @@ const Dashboard = () => {
 
   return (
     <div className="space-y-8">
-
       <DashboardHeader />
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
-
         <StatsCard
           title="Total Articles"
           value={stats?.totalArticles || 0}
@@ -62,11 +55,9 @@ const Dashboard = () => {
           icon={<XCircle className="text-white" />}
           color="bg-red-600"
         />
-
       </div>
 
       <RecentPending />
-
     </div>
   );
 };

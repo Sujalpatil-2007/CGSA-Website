@@ -102,7 +102,7 @@ const ReviewArticle = () => {
       <div>
         <h1 className="text-5xl font-bold leading-tight">{article.title}</h1>
 
-        <div className="mt-6 flex flex-wrap gap-8 text-gray-500">
+        <div className="mt-6 flex flex-wrap gap-8 text-gray-200">
           <div className="flex items-center gap-2">
             <User size={18} />
             {article.author?.username}
@@ -122,7 +122,7 @@ const ReviewArticle = () => {
 
       {/* Description */}
 
-      <div className="rounded-xl bg-gray-50 p-6">
+      <div className="rounded-xl bg-white p-6">
         <h2 className="mb-3 text-xl font-bold">Description</h2>
 
         <p className="leading-8 text-gray-700">{article.description}</p>

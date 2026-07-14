@@ -205,7 +205,6 @@ const AdminArticles = () => {
                       >
                         <Trash size={18} />
                       </button>
-
                     </div>
                   </td>
                 </tr>
