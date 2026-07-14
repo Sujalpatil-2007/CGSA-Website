@@ -22,7 +22,7 @@ const Dashboard = () => {
     console.log(data);
     
     if (data) {
-      setStats(data);
+      setStats(data.stats);
     }
     console.log(stats);
   };
