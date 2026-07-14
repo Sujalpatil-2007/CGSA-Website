@@ -274,7 +274,7 @@ const getArticleById = async (req, res) => {
     const article = await articleModel
       .findById(req.params.id)
       .populate("author", "username email")
-      .populate("approvedBy", "username email");
+      .populate("reviewedBy", "username email");
 
     if (!article) {
       return res.status(404).json({
