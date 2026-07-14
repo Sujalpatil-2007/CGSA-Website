@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Eye, Check, X, FilePenLine } from "lucide-react";
+import { Eye, Check, X, FilePenLine, Trash } from "lucide-react";
 
 import { useNavigate } from "react-router";
 
