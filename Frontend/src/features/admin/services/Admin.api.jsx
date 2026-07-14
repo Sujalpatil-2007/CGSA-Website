@@ -30,21 +30,17 @@ export const approveArticle = async (id) => {
   return res.data;
 };
 
-export const rejectArticle = async (id,feedback) => {
-  const res = await api.patch(`/api/admin/articles/${id}/reject`);
+export const rejectArticle = async (id, feedback) => {
+  const res = await api.patch(`/api/admin/articles/${id}/reject`, {
+    feedback,
+  });
   return res.data;
 };
 
-export const requestChangesArticle = async (
-  id,
-  feedback
-) => {
-  const res = await api.patch(
-    `/api/admin/articles/${id}/request-changes`,
-    {
-      feedback,
-    }
-  );
+export const requestChangesArticle = async (id, feedback) => {
+  const res = await api.patch(`/api/admin/articles/${id}/request-changes`, {
+    feedback,
+  });
 
   return res.data;
 };
