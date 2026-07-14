@@ -77,7 +77,7 @@ export const useArticle = () => {
       await deleteArticle(id);
 
       toast.success("Article Deleted Successfully");
-      navigate("/articles");
+      navigate("/admin");
     } catch (err) {
       console.log(err);
 
