@@ -102,7 +102,7 @@ const ReviewArticle = () => {
       <div>
         <h1 className="text-5xl font-bold leading-tight">{article.title}</h1>
 
-        <div className="mt-6 flex flex-wrap gap-8 text-gray-200">
+        <div className="mt-6 flex flex-wrap gap-8 text-gray-400">
           <div className="flex items-center gap-2">
             <User size={18} />
             {article.author?.username}

@@ -45,7 +45,7 @@ const publishForm = () => {
             author: "",
           });
           // navigate(`/articles/${data.article._id}`);
-          navigate("/my-articles")
+          navigate("/my-articles");
           toast.success("Article Approved Successfully ✨");
         }
       } catch (err) {
