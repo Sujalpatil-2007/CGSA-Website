@@ -101,20 +101,6 @@ const Articles = () => {
     {article.category}
   </span>
 
-  <span
-    className={`rounded-full px-3 py-1 text-sm
-      ${
-        article.status === "Approved"
-          ? "bg-green-100 text-green-700"
-          : article.status === "Rejected"
-          ? "bg-red-100 text-red-700"
-          : article.status === "Changes Requested"
-          ? "bg-orange-100 text-orange-700"
-          : "bg-yellow-100 text-yellow-700"
-      }`}
-  >
-    {article.status}
-  </span>
 </div>
                     <p className="flex items-center gap-1 font-[font1]">
                       <Calendar size={18} />
