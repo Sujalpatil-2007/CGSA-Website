@@ -191,10 +191,35 @@ const deleteArticle = async (req, res) => {
   }
 };
 
+/**
+ * @name getMyArticles
+ * @description get all the articles of loged in user.
+ * @access private
+ */
+const getMyArticles = async (req, res) => {
+  try {
+    const articles = await articleModel
+      .find({ author: req.user.id })
+      .sort({ createdAt: -1 })
+      .populate("author", "username email");
+
+    return res.status(200).json({
+      success: true,
+      articles,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
+};
+
 module.exports = {
   createArticle,
   getAllArticles,
   getArticleById,
   updateArticle,
   deleteArticle,
+  getMyArticles,
 };
