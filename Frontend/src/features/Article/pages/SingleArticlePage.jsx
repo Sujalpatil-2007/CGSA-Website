@@ -192,13 +192,6 @@ const SingleArticle = () => {
             {user && article.author?._id === user.id && (
               <div className="flex flex-wrap gap-4 mt-6">
                 <button
-                  onClick={() => navigate(`/articles/edit/${article._id}`)}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition"
-                >
-                  Update Article
-                </button>
-
-                <button
                   onClick={handleDelete}
                   className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg transition"
                 >

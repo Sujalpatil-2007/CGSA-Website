@@ -44,7 +44,8 @@ const publishForm = () => {
             content: "",
             author: "",
           });
-          navigate(`/articles/${data.article._id}`);
+          // navigate(`/articles/${data.article._id}`);
+          navigate("/my-articles")
           toast.success("Article Approved Successfully ✨");
         }
       } catch (err) {
@@ -215,7 +216,7 @@ const publishForm = () => {
                   onClick={handleSubmit}
                 >
                   <Send size={30} className="p-1" />
-                  Publish Article
+                  Send to Admin
                 </button>
               </div>
             </form>
