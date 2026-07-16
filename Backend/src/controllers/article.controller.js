@@ -198,7 +198,7 @@ const deleteArticle = async (req, res) => {
  */
 const getMyArticles = async (req, res) => {
   try {
-    const articles = await articleModel
+    const articles = await Article
       .find({ author: req.user.id })
       .sort({ createdAt: -1 })
       .populate("author", "username email");
