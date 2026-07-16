@@ -35,10 +35,10 @@ const Articles = () => {
     return matchesSearch && matchesCategory;
   });
 
-    if (loading) {
+  if (loading) {
     return <Loading />;
   }
-  
+
   return (
     <div className="min-h-screen w-screen dark:bg-gray-900 bg-[#e5d0a7b9]">
       <Navbar />
@@ -97,11 +97,10 @@ const Articles = () => {
                 <div className="p-5">
                   <div className="flex justify-between">
                     <div className="flex flex-wrap gap-2">
-  <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800">
-    {article.category}
-  </span>
-
-</div>
+                      <span className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800">
+                        {article.category}
+                      </span>
+                    </div>
                     <p className="flex items-center gap-1 font-[font1]">
                       <Calendar size={18} />
                       {new Date(article.createdAt).toLocaleDateString("en-IN", {

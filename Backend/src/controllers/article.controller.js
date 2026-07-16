@@ -12,8 +12,7 @@ const createArticle = async (req, res) => {
 
   if (!title || !category || !description || !image || !content) {
     return res.status(400).json({
-      message:
-        "Please provide title, category, description,image and content",
+      message: "Please provide title, category, description,image and content",
     });
   }
 
@@ -35,12 +34,12 @@ const createArticle = async (req, res) => {
       article,
     });
   } catch (err) {
-  console.error(err);
+    console.error(err);
 
-  return res.status(500).json({
-    message: err.message,
-  });
-}
+    return res.status(500).json({
+      message: err.message,
+    });
+  }
 };
 
 /**
@@ -52,9 +51,9 @@ const createArticle = async (req, res) => {
 const getAllArticles = async (req, res) => {
   try {
     const articles = await Article.find({
-      status:"Approved"
+      status: "Approved",
     })
-      .populate("author", "name email")
+      .populate("author", "username email")
       .sort({ createdAt: -1 });
     res.status(200).json({
       success: true,
@@ -166,8 +165,7 @@ const deleteArticle = async (req, res) => {
     const user = await userModel.findById(req.user.id);
 
     // Allow if author OR super admin
-    const isAuthor =
-      article.author.toString() === req.user.id;
+    const isAuthor = article.author.toString() === req.user.id;
 
     const isAdmin = user.isSuperAdmin;
 
@@ -184,10 +182,10 @@ const deleteArticle = async (req, res) => {
       message: "Article deleted successfully",
     });
   } catch (error) {
-     return res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: err.message,
-     })
+    });
   }
 };
 
@@ -198,8 +196,7 @@ const deleteArticle = async (req, res) => {
  */
 const getMyArticles = async (req, res) => {
   try {
-    const articles = await Article
-      .find({ author: req.user.id })
+    const articles = await Article.find({ author: req.user.id })
       .sort({ createdAt: -1 })
       .populate("author", "username email");
 
