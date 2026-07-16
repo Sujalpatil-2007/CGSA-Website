@@ -2,6 +2,7 @@ import {
   createArticle,
   deleteArticle,
   getArticleById,
+  getMyArticles,
   updateArticle,
 } from "../services/Article.api";
 
@@ -103,11 +104,27 @@ export const useArticle = () => {
     }
   };
 
+  const handleGetMyArticles = async () => {
+  try {
+    const data = await getMyArticles();
+
+    return data;
+  } catch (err) {
+    toast.error(
+      err.response?.data?.message ||
+      "Failed to fetch your articles."
+    );
+
+    return null;
+  }
+};
+
   return {
     handleCreateArticle,
     handleGetArticleById,
     handleDeleteArticle,
     handleUpdateArticle,
+    handleGetMyArticles,
   };
 };
 

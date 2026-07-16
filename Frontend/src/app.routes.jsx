@@ -21,6 +21,7 @@ import Dashboard from "./features/admin/pages/Dashboard";
 import AdminArticles from "./features/admin/pages/AdminArticles";
 import ReviewArticle from "./features/admin/pages/ReviewArticle";
 import AdminProtected from "./features/admin/components/AdminProtected";
+import MyArticles from "./features/Article/pages/MyArticles";
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,14 @@ export const router = createBrowserRouter([
     element: (
       <Protected>
         <EditArticle />
+      </Protected>
+    ),
+  },
+  {
+    path: "/my-articles",
+    element: (
+      <Protected>
+        <MyArticles />
       </Protected>
     ),
   },

@@ -115,12 +115,21 @@ const Navbar = () => {
         </Link>
 
         {user && (
+          <>
           <Link
             to="/PublishArticles"
             className="font-semibold dark:text-white hover:text-green-700"
           >
             Publish
           </Link>
+          
+          <Link
+            to="/my-articles"
+            className="font-semibold dark:text-white hover:text-green-700"
+          >
+            MyArticles
+          </Link>
+          </>
         )}
       </div>
       {/* Right Side */}
@@ -199,12 +208,21 @@ const Navbar = () => {
             </Link>
 
             {user && (
+              <>
               <Link
                 className="links text-3xl font-semibold hover:text-green-700 dark:text-white "
                 to="/PublishArticles"
               >
                 Publish
               </Link>
+              
+              <Link
+                className="links text-3xl font-semibold hover:text-green-700 dark:text-white "
+                to="/my-articles"
+              >
+                MyArticles
+              </Link>
+              </>
             )}
 
             {user && (

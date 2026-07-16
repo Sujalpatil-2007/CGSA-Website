@@ -66,3 +66,12 @@ export async function updateArticle(id, articleData) {
     console.log(err);
   }
 }
+
+export async function getMyArticles() {
+  try {
+    const response = await api.get("/api/articles/my");
+    return response.data;
+  } catch(err){
+    console.log(err);
+  }
+}
