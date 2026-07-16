@@ -75,19 +75,57 @@ const getAllArticles = async (req, res) => {
 
 const getArticleById = async (req, res) => {
   try {
-    const article = await Article.findById(req.params.id).populate(
-      "author",
-      "username email ",
-    );
+    const article = await Article.findOne({
+      _id: req.params.id,
+      status: "Approved",
+    }).populate("author", "username email");
 
     if (!article) {
       return res.status(404).json({
         message: "Article not found",
       });
     }
-    res.status(200).json(article);
+
+    return res.status(200).json({
+      success: true,
+      article,
+    });
   } catch (err) {
-    res.status(500).json({
+    return res.status(500).json({
+      message: err.message,
+    });
+  }
+};
+
+/**
+ * @name getMyOneArticles
+ * @description get the My single article
+ * @access Public
+ */
+
+const getMyArticleById = async (req, res) => {
+  try {
+    const article = await Article.findOne({
+      _id: req.params.id,
+      author: req.user.id,
+    })
+      .populate("author", "username email")
+      .populate("reviewedBy", "username");
+
+    if (!article) {
+      return res.status(404).json({
+        success: false,
+        message: "Article not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      article,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
       message: err.message,
     });
   }
@@ -181,7 +219,7 @@ const deleteArticle = async (req, res) => {
     res.status(200).json({
       message: "Article deleted successfully",
     });
-  } catch (error) {
+  } catch (err) {
     return res.status(500).json({
       success: false,
       message: err.message,
@@ -219,4 +257,5 @@ module.exports = {
   updateArticle,
   deleteArticle,
   getMyArticles,
+  getMyArticleById,
 };

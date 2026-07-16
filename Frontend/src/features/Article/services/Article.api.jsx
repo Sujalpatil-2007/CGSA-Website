@@ -75,3 +75,13 @@ export async function getMyArticles() {
     console.log(err);
   }
 }
+
+export async function getMyArticleById(id) {
+  try{
+    const response = await api.get(`/api/articles/my/${id}`);
+    return response.data;
+  }catch(err){
+    console.log(err);
+  }
+}
+
