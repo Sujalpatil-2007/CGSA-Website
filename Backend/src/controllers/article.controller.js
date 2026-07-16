@@ -142,18 +142,23 @@ const updateArticle = async (req, res) => {
     const article = await Article.findById(req.params.id);
 
     if (!article) {
-      return res.status(404).json({ message: "Article not found" });
+      return res.status(404).json({
+        message: "Article not found",
+      });
     }
 
     if (!req.user?.id) {
-      return res.status(401).json({ message: "User not authenticated" });
+      return res.status(401).json({
+        message: "User not authenticated",
+      });
     }
 
     if (article.author.toString() !== req.user.id.toString()) {
-      return res.status(403).json({ message: "Not Authorized" });
+      return res.status(403).json({
+        message: "Not Authorized",
+      });
     }
 
-    // 🔥 ONLY allow safe fields
     const allowedUpdates = {
       title: req.body.title,
       category: req.body.category,
@@ -162,23 +167,38 @@ const updateArticle = async (req, res) => {
       content: req.body.content,
     };
 
+    // Send back for review if it was rejected or changes requested
+    if (
+      article.status === "Rejected" ||
+      article.status === "Changes Requested"
+    ) {
+      allowedUpdates.status = "Pending";
+      allowedUpdates.feedback = "";
+      allowedUpdates.reviewedBy = null;
+      allowedUpdates.reviewedAt = null;
+    }
+
     const updatedArticle = await Article.findByIdAndUpdate(
       req.params.id,
-      { $set: allowedUpdates },
+      {
+        $set: allowedUpdates,
+      },
       {
         new: true,
         runValidators: true,
-        useFindAndModify: false,
-      },
+      }
     );
 
     return res.status(200).json({
-      message: "Updated successfully",
+      success: true,
+      message: "Article updated successfully",
       article: updatedArticle,
     });
   } catch (err) {
-    console.log("UPDATE ERROR:", err);
+    console.log(err);
+
     return res.status(500).json({
+      success: false,
       message: err.message,
     });
   }
