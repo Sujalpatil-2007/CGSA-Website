@@ -3,7 +3,7 @@ import { Link, useParams, useNavigate } from "react-router";
 import Navbar from "../../home/components/Navbar";
 import Footer from "../../home/components/Footer";
 import Loading from "../../auth/pages/Loading";
-import { getArticleById } from "../services/Article.api";
+import { getMyArticleById } from "../services/Article.api";
 
 const MyArticleDetails = () => {
   const { id } = useParams();
@@ -18,7 +18,7 @@ const MyArticleDetails = () => {
 
   const fetchArticle = async () => {
     try {
-      const data = await getArticleById(id);
+      const data = await getMyArticleById(id);
 
       setArticle(data.article);
     } finally {
